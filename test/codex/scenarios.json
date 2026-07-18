@@ -1,0 +1,18 @@
+{
+    "codex": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./codex"
+        ],
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": false
+            },
+            "codex": {
+                "version": "latest"
+            }
+        }
+    }
+}

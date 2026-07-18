@@ -1,0 +1,35 @@
+{
+    "name": "Node.js",
+    "id": "node",
+    "version": "1.0.0",
+    "description": "Install Node.js and optional Corepack support.",
+    "options": {
+        "version": {
+            "type": "string",
+            "enum": [
+                "20",
+                "24",
+                "26",
+                "lts",
+                "latest"
+            ],
+            "default": "24",
+            "description": "Node.js major version to install."
+        },
+        "installCorepack": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable Corepack after installation."
+        },
+        "npmGlobalPackages": {
+            "type": "string",
+            "default": "",
+            "description": "Comma-separated list of npm packages to install globally."
+        },
+        "minReleaseAge": {
+            "type": "string",
+            "default": "7",
+            "description": "Minimum release age in days for npm installation."
+        }
+    }
+}

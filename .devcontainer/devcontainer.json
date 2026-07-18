@@ -1,5 +1,5 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
     "customizations": {
         "vscode": {
             "settings": {
@@ -13,13 +13,22 @@
                 ]
             },
             "extensions": [
-                "mads-hartmann.bash-ide-vscode"
+                "mads-hartmann.bash-ide-vscode",
+                "ms-azuretools.vscode-containers",
+                "github.vscode-github-actions"
             ]
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:4": {
+            "version": "latest",
+            "moby": false,
+            "installDockerBuildx": true,
+            "installDockerComposeSwitch": false,
+            "disableIp6tables": false,
+            "iptablesSwitchAtRuntime": false
+        }
     },
     "remoteUser": "node",
-    "updateContentCommand": "npm install -g @devcontainers/cli"
+    "updateContentCommand": "npm install --global --ignore-scripts --min-release-age=7 @devcontainers/cli"
 }

@@ -1,0 +1,18 @@
+{
+    "pi": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./pi"
+        ],
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": false
+            },
+            "pi": {
+                "version": "latest"
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "python-with-ruff": {
+        "image": "ubuntu:latest",
+        "features": {
+            "python": {
+                "version": "3.14",
+                "installPipx": true,
+                "installVenv": true,
+                "installRuff": true,
+                "installPyright": false
+            }
+        }
+    },
+    "all-tools": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./python"
+        ],
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": false
+            },
+            "python": {
+                "version": "3.14",
+                "installPipx": true,
+                "installVenv": true,
+                "installRuff": true,
+                "installPyright": true
+            }
+        }
+    }
+}

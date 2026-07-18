@@ -1,0 +1,19 @@
+{
+    "chromium-without-system-dependencies": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./playwright"
+        ],
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": false
+            },
+            "playwright": {
+                "browser": "chromium",
+                "installSystemDeps": false
+            }
+        }
+    }
+}
