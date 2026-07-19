@@ -1,0 +1,43 @@
+{
+    "name": "User",
+    "id": "user",
+    "version": "1.0.0",
+    "description": "Create a development user with configurable identity, password, shell, and sudo access.",
+    "options": {
+        "username": {
+            "type": "string",
+            "default": "dev",
+            "description": "Name of the user to create."
+        },
+        "configurePassword": {
+            "type": "boolean",
+            "default": true,
+            "description": "Configure the account password when passwordCrypt is set."
+        },
+        "passwordCrypt": {
+            "type": "string",
+            "default": "",
+            "description": "Crypt-formatted password hash. Leave blank to create a password-locked account."
+        },
+        "configureSudo": {
+            "type": "boolean",
+            "default": false,
+            "description": "Grant the user password-protected sudo access. Requires passwordCrypt."
+        },
+        "shell": {
+            "type": "string",
+            "default": "/bin/bash",
+            "description": "Absolute path to the user's login shell."
+        },
+        "userUid": {
+            "type": "string",
+            "default": "1000",
+            "description": "Numeric UID for the user."
+        },
+        "userGid": {
+            "type": "string",
+            "default": "1000",
+            "description": "Numeric GID for the user."
+        }
+    }
+}
