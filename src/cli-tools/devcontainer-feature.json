@@ -1,0 +1,33 @@
+{
+    "name": "CLI Tools",
+    "id": "cli-tools",
+    "version": "1.0.0",
+    "description": "Install a set of developer CLI tools.",
+    "options": {
+        "installBrave": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install the Brave CLI."
+        },
+        "installContext7": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install the Context7 CLI."
+        },
+        "installFirecrawl": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install the Firecrawl CLI."
+        },
+        "installTavily": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install the Tavily CLI."
+        },
+        "minReleaseAge": {
+            "type": "string",
+            "default": "7",
+            "description": "Minimum release age in days for npm-based CLI installation."
+        }
+    }
+}

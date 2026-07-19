@@ -1,0 +1,18 @@
+{
+    "name": "Codex",
+    "id": "codex",
+    "version": "1.0.0",
+    "description": "Install the OpenAI Codex CLI.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of the Codex package to install."
+        },
+        "minReleaseAge": {
+            "type": "string",
+            "default": "7",
+            "description": "Minimum release age in days for npm installation."
+        }
+    }
+}

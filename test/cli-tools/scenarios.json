@@ -1,0 +1,40 @@
+{
+    "context7": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./cli-tools"
+        ],
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": false
+            },
+            "cli-tools": {
+                "installBrave": false,
+                "installContext7": true,
+                "installFirecrawl": false,
+                "installTavily": false
+            }
+        }
+    },
+    "all-tools": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./cli-tools"
+        ],
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": false
+            },
+            "cli-tools": {
+                "installBrave": true,
+                "installContext7": true,
+                "installFirecrawl": true,
+                "installTavily": true
+            }
+        }
+    }
+}

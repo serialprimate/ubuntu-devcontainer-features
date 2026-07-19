@@ -1,0 +1,21 @@
+{
+    "node-24-with-corepack": {
+        "image": "ubuntu:latest",
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": true
+            }
+        }
+    },
+    "node-with-global-package": {
+        "image": "ubuntu:latest",
+        "features": {
+            "node": {
+                "version": "24",
+                "installCorepack": true,
+                "npmGlobalPackages": "markdownlint-cli2"
+            }
+        }
+    }
+}
