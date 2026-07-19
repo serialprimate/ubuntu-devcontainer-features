@@ -27,7 +27,7 @@ jobs:
           - feature: python
             baseImage: ubuntu:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: "Install latest devcontainer CLI"
         run: npm install --global --ignore-scripts --min-release-age=7 @devcontainers/cli
@@ -48,7 +48,7 @@ jobs:
           - playwright
           - python
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: "Install latest devcontainer CLI"
         run: npm install --global --ignore-scripts --min-release-age=7 @devcontainers/cli
@@ -59,7 +59,7 @@ jobs:
   test-global:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: "Install latest devcontainer CLI"
         run: npm install --global --ignore-scripts --min-release-age=7 @devcontainers/cli
