@@ -2,6 +2,7 @@
 set -euo pipefail
 
 # Inputs
+
 # Collect options.
 version="${VERSION:-24}"
 install_corepack="${INSTALLCOREPACK:-true}"
@@ -28,11 +29,13 @@ case "${install_corepack}" in true|false) ;; *) error "INSTALLCOREPACK must be t
 case "${min_release_age}" in ''|*[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;; esac
 
 # Prerequisites
+
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
 require_command apt-get
 
 # Installation
+
 # Install functions.
 install_apt_packages() {
     apt-get update

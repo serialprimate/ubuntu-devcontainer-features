@@ -2,6 +2,7 @@
 set -euo pipefail
 
 # Inputs
+
 # Collect options.
 version="${VERSION:-latest}"
 min_release_age="${MINRELEASEAGE:-7}"
@@ -15,11 +16,13 @@ error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 case "${min_release_age}" in ''|*[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;; esac
 
 # Prerequisites
+
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
 require_command npm
 
 # Installation
+
 # Install functions.
 # No install functions are required.
 

@@ -2,6 +2,7 @@
 set -euo pipefail
 
 # Inputs
+
 # Collect options.
 packages=()
 IFS=',' read -r -a raw_packages <<< "${PACKAGES:-}"
@@ -20,6 +21,7 @@ error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 # Check option compatibility.
 
 # Prerequisites
+
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
 if [ ${#packages[@]} -gt 0 ]; then
@@ -27,6 +29,7 @@ if [ ${#packages[@]} -gt 0 ]; then
 fi
 
 # Installation
+
 # Install functions.
 install_apt_packages() {
     apt-get update

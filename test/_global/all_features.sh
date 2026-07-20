@@ -2,16 +2,19 @@
 set -euo pipefail
 
 # Inputs
+
 # No test inputs are required.
 
 # This test can be run with the following command from the root of this repository.
 # devcontainer features test --global-scenarios-only .
 
 # Prerequisites
+
 # Load the dev container feature test library.
 source dev-container-features-test-lib
 
 # Tests
+
 # Verify the combined developer toolchain is installed and usable.
 check "Node.js 24 is installed" bash -c 'node --version | grep -E "^v24\."'
 check "Corepack is installed" corepack --version
