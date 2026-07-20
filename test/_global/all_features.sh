@@ -29,5 +29,8 @@ check "Python 3.14 is installed" bash -c 'python3.14 --version | grep -E "^Pytho
 check "pipx is installed" pipx --version
 check "Ruff is installed" ruff --version
 check "Pyright is installed" pyright --version
+check "Development user is installed" id dev
+check "Development user has UID 1000" bash -c '[ "$(id -u dev)" = "1000" ]'
+check "Development user has GID 1000" bash -c '[ "$(id -g dev)" = "1000" ]'
 
 reportResults
