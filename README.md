@@ -47,6 +47,7 @@ devcontainer features test --global-scenarios-only .
 - [Dev Container Features specification](https://containers.dev/implementors/features/): Feature metadata, option resolution, versioning, and implementation requirements.
 - [Feature distribution specification](https://containers.dev/implementors/features-distribution/): OCI distribution and collection publishing requirements.
 - [Dev Container CLI](https://github.com/devcontainers/cli): CLI used locally and in CI to package and test features.
+- [Dev Container CLI: Testing Dev Container Features](https://github.com/devcontainers/cli/blob/f683c29f64a20109b4453e5149807e390ff65133/docs/features/test.md): Testing features locally and in CI.
 - [Dev Container Features index](https://containers.dev/features): Public index and discovery service for published feature collections.
 
 ### Publishing and CI
