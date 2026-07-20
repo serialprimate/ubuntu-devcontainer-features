@@ -2,6 +2,7 @@
 set -euo pipefail
 
 # Inputs
+
 # Collect options.
 version="${VERSION:-1.61.0}"
 browser="${BROWSER:-chromium}"
@@ -21,6 +22,7 @@ esac
 case "${min_release_age}" in ''|*[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;; esac
 
 # Prerequisites
+
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
 require_command npm
@@ -29,6 +31,7 @@ if [ "${install_system_deps}" = "true" ]; then
 fi
 
 # Installation
+
 # Install functions.
 # No install functions are required; Playwright manages browser dependencies.
 

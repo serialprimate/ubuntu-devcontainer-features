@@ -2,6 +2,7 @@
 set -euo pipefail
 
 # Inputs
+
 # Collect options.
 username="${USERNAME:-dev}"
 configure_password="${CONFIGUREPASSWORD:-true}"
@@ -29,6 +30,7 @@ case "${user_gid}" in ''|*[!0-9]*) error "GID must be a non-negative integer." ;
 [ "${configure_sudo}" = "false" ] || [ -n "${password_crypt}" ] || error "CONFIGURESUDO requires PASSWORDCRYPT to be set."
 
 # Prerequisites
+
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
 require_command getent
@@ -46,6 +48,7 @@ if [ "${configure_sudo}" = "true" ]; then
 fi
 
 # Installation
+
 # Install functions.
 remove_user_with_uid() {
     local existing_user

@@ -2,6 +2,7 @@
 set -euo pipefail
 
 # Inputs
+
 # Collect options.
 install_brave="${INSTALLBRAVE:-true}"
 install_context7="${INSTALLCONTEXT7:-true}"
@@ -23,6 +24,7 @@ done
 case "${min_release_age}" in ''|*[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;; esac
 
 # Prerequisites
+
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
 if [ "${install_context7}" = "true" ] || [ "${install_firecrawl}" = "true" ]; then
@@ -40,6 +42,7 @@ if [ "${install_tavily}" = "true" ]; then
 fi
 
 # Installation
+
 # Install functions.
 install_apt_packages() {
     apt-get update

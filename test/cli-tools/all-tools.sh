@@ -2,13 +2,16 @@
 set -euo pipefail
 
 # Inputs
+
 # No test inputs are required.
 
 # Prerequisites
+
 # Load the dev container feature test library.
 source dev-container-features-test-lib
 
 # Tests
+
 # Verify every selected CLI tool is installed.
 check "Brave CLI is installed" bx --help
 check "Context7 CLI is installed" ctx7 --help

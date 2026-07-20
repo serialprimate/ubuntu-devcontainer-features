@@ -2,13 +2,16 @@
 set -euo pipefail
 
 # Inputs
+
 # No test inputs are required.
 
 # Prerequisites
+
 # Load the dev container feature test library.
 source dev-container-features-test-lib
 
 # Tests
+
 # Verify the feature creates its configured default user.
 check "Default user exists" id dev
 check "Default user has UID 1000" bash -c '[ "$(id -u dev)" = "1000" ]'
