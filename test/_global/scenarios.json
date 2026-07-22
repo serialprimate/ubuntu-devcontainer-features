@@ -9,7 +9,8 @@
             "./codex",
             "./pi",
             "./playwright",
-            "./python",
+            "./os-python",
+            "./pipx-packages",
             "./user"
         ],
         "features": {
@@ -38,12 +39,14 @@
                 "browser": "chromium",
                 "installSystemDeps": true
             },
-            "python": {
+            "os-python": {
                 "version": "3.14",
+                "installPip": true,
                 "installPipx": true,
-                "installVenv": true,
-                "installRuff": true,
-                "installPyright": true
+                "installVenv": true
+            },
+            "pipx-packages": {
+                "pipxPackages": "black"
             },
             "user": {
                 "username": "dev",

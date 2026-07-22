@@ -29,8 +29,7 @@ check "Playwright is installed" playwright --version
 check "Chromium browser is installed" bash -c 'find /ms-playwright -maxdepth 1 -type d -name "chromium-*" -print -quit | grep -q .'
 check "Python 3.14 is installed" bash -c 'python3.14 --version | grep -E "^Python 3\.14\."'
 check "pipx is installed" pipx --version
-check "Ruff is installed" ruff --version
-check "Pyright is installed" pyright --version
+check "Black is installed" black --version
 check "Development user is installed" id dev
 check "Development user has UID 1000" bash -c '[ "$(id -u dev)" = "1000" ]'
 check "Development user has GID 1000" bash -c '[ "$(id -g dev)" = "1000" ]'

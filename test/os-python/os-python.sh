@@ -12,10 +12,9 @@ source dev-container-features-test-lib
 
 # Tests
 
-# Verify every selected Python tool is installed.
-check "Python 3.14 is installed" bash -c 'python3.14 --version | grep -E "^Python 3\.14\."'
+# Verify the configured Python tooling installation.
+check "Python 3.14 is installed" bash -c 'python3 --version | grep -E "^Python 3\.14\."'
+check "pip is installed" pip3 --version
 check "pipx is installed" pipx --version
-check "Ruff is installed" ruff --version
-check "Pyright is installed" pyright --version
 
 reportResults

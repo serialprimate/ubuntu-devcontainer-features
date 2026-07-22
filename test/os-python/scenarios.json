@@ -1,0 +1,13 @@
+{
+    "os-python": {
+        "image": "ubuntu:latest",
+        "features": {
+            "os-python": {
+                "version": "3.14",
+                "installPip": true,
+                "installPipx": true,
+                "installVenv": true
+            }
+        }
+    }
+}
