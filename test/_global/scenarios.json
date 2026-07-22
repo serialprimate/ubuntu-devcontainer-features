@@ -18,10 +18,10 @@
                 "version": "lts"
             },
             "npm-packages": {
-                "npmGlobalPackages": "markdownlint-cli2"
+                "npmPackages": "markdownlint-cli2"
             },
             "os-packages": {
-                "packages": "tree"
+                "aptPackages": "tree"
             },
             "cli-tools": {
                 "installBrave": true,
