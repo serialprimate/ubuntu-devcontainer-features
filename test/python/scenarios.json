@@ -19,8 +19,7 @@
         ],
         "features": {
             "node": {
-                "version": "24",
-                "installCorepack": false
+                "version": "lts"
             },
             "python": {
                 "version": "3.14",

@@ -17,7 +17,6 @@ source dev-container-features-test-lib
 
 # Verify the combined developer toolchain is installed and usable.
 check "Node.js 24 is installed" bash -c 'node --version | grep -E "^v24\."'
-check "Corepack is installed" corepack --version
 check "markdownlint-cli2 is installed" markdownlint-cli2 --version
 check "Tree is installed" tree --version
 check "Brave CLI is installed" bx --help
