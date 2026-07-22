@@ -2,11 +2,11 @@
     "pipx-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
-            "./os-python",
+            "./apt-python",
             "./pipx-packages"
         ],
         "features": {
-            "os-python": {
+            "apt-python": {
                 "version": "3.14",
                 "installPip": true,
                 "installPipx": true,

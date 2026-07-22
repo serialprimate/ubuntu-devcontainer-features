@@ -13,6 +13,6 @@ source dev-container-features-test-lib
 # Tests
 
 # Verify the feature accepts its empty default package list.
-check "OS packages feature completed" true
+check "APT packages feature completed" true
 
 reportResults

@@ -1,6 +1,6 @@
 {
-    "name": "OS Packages",
-    "id": "os-packages",
+    "name": "APT Packages",
+    "id": "apt-packages",
     "version": "1.0.0",
     "description": "Install apt packages.",
     "options": {

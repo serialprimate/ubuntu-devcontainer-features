@@ -4,12 +4,12 @@
         "overrideFeatureInstallOrder": [
             "./node",
             "./npm-packages",
-            "./os-packages",
+            "./apt-packages",
             "./cli-tools",
             "./codex",
             "./pi",
             "./playwright",
-            "./os-python",
+            "./apt-python",
             "./pipx-packages",
             "./user"
         ],
@@ -20,7 +20,7 @@
             "npm-packages": {
                 "npmPackages": "markdownlint-cli2"
             },
-            "os-packages": {
+            "apt-packages": {
                 "aptPackages": "tree"
             },
             "cli-tools": {
@@ -39,7 +39,7 @@
                 "browser": "chromium",
                 "installSystemDeps": true
             },
-            "os-python": {
+            "apt-python": {
                 "version": "3.14",
                 "installPip": true,
                 "installPipx": true,

@@ -20,13 +20,13 @@ jobs:
             baseImage: ubuntu:latest
           - feature: npm-packages
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
-          - feature: os-packages
+          - feature: apt-packages
             baseImage: ubuntu:latest
           - feature: pi
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: playwright
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
-          - feature: os-python
+          - feature: apt-python
             baseImage: ubuntu:latest
           - feature: pipx-packages
             baseImage: mcr.microsoft.com/devcontainers/python:3.14
@@ -48,10 +48,10 @@ jobs:
           - codex
           - node
           - npm-packages
-          - os-packages
+          - apt-packages
           - pi
           - playwright
-          - os-python
+          - apt-python
           - pipx-packages
     steps:
       - uses: actions/checkout@v7

@@ -1,8 +1,8 @@
 {
-    "os-python": {
+    "apt-python": {
         "image": "ubuntu:latest",
         "features": {
-            "os-python": {
+            "apt-python": {
                 "version": "3.14",
                 "installPip": true,
                 "installPipx": true,

@@ -1,8 +1,8 @@
 {
-    "name": "OS Python",
-    "id": "os-python",
+    "name": "APT Python",
+    "id": "apt-python",
     "version": "1.0.0",
-    "description": "Install Python and optional pip, pipx, and venv support.",
+    "description": "Install Python and optional pip, pipx, and venv apt packages.",
     "options": {
         "version": {
             "type": "string",
@@ -28,7 +28,7 @@
         "installVenv": {
             "type": "boolean",
             "default": true,
-            "description": "Ensure venv support is available."
+            "description": "Install venv."
         }
     }
 }
