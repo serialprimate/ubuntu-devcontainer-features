@@ -12,7 +12,7 @@ source dev-container-features-test-lib
 
 # Tests
 
-# Verify the requested apt package is installed.
-check "Tree is installed" tree --version
+# Verify the configured global npm package installation.
+check "markdownlint-cli2 is installed" markdownlint-cli2 --version
 
 reportResults
