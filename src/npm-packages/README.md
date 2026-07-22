@@ -8,7 +8,7 @@ Install npm packages globally.
 ```json
 "features": {
     "ghcr.io/serialprimate/ubuntu-devcontainer-features/npm-packages:1": {
-        "npmGlobalPackages": "markdownlint-cli2"
+        "npmPackages": "markdownlint-cli2"
     }
 }
 ```
@@ -17,7 +17,7 @@ Install npm packages globally.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| npmGlobalPackages | Comma-separated list of npm packages to install globally. | string | - |
+| npmPackages | Comma-separated list of npm packages to install globally. | string | - |
 | minReleaseAge | Minimum release age in days for npm installation. | string | 7 |
 
 

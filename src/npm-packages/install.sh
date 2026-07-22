@@ -5,14 +5,14 @@ set -euo pipefail
 
 # Collect options.
 min_release_age="${MINRELEASEAGE:-7}"
-global_packages=()
-if [ -n "${NPMGLOBALPACKAGES:-}" ]; then
-    IFS=',' read -r -a requested_packages <<< "${NPMGLOBALPACKAGES}"
+package_list=()
+if [ -n "${NPMPACKAGES:-}" ]; then
+    IFS=',' read -r -a requested_packages <<< "${NPMPACKAGES}"
     for package in "${requested_packages[@]}"; do
         package="${package#"${package%%[![:space:]]*}"}"
         package="${package%"${package##*[![:space:]]}"}"
         if [ -n "${package}" ]; then
-            global_packages+=("${package}")
+            package_list+=("${package}")
         fi
     done
 fi
@@ -36,7 +36,7 @@ require_command npm
 # No install functions are required.
 
 # Install packages.
-if [ ${#global_packages[@]} -gt 0 ]; then
+if [ ${#package_list[@]} -gt 0 ]; then
     log "Installing global npm packages."
-    npm install --global --ignore-scripts --min-release-age="${min_release_age}" "${global_packages[@]}"
+    npm install --global --ignore-scripts --min-release-age="${min_release_age}" "${package_list[@]}"
 fi

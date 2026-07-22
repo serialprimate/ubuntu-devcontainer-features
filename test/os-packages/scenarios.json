@@ -3,7 +3,7 @@
         "image": "ubuntu:latest",
         "features": {
             "os-packages": {
-                "packages": "tree"
+                "aptPackages": "tree"
             }
         }
     }

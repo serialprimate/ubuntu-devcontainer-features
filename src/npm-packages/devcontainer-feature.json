@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "Install npm packages globally.",
     "options": {
-        "npmGlobalPackages": {
+        "npmPackages": {
             "type": "string",
             "default": "",
             "description": "Comma-separated list of npm packages to install globally."

@@ -4,13 +4,13 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-packages=()
-IFS=',' read -r -a raw_packages <<< "${PACKAGES:-}"
+package_list=()
+IFS=',' read -r -a raw_packages <<< "${APTPACKAGES:-}"
 for package in "${raw_packages[@]}"; do
     trimmed="${package#"${package%%[![:space:]]*}"}"
     trimmed="${trimmed%"${trimmed##*[![:space:]]}"}"
     if [ -n "${trimmed}" ]; then
-        packages+=("${trimmed}")
+        package_list+=("${trimmed}")
     fi
 done
 
@@ -24,7 +24,7 @@ error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
-if [ ${#packages[@]} -gt 0 ]; then
+if [ ${#package_list[@]} -gt 0 ]; then
     require_command apt-get
 fi
 
@@ -40,8 +40,8 @@ install_apt_packages() {
 
 # Install packages.
 # 1. Requested apt packages
-if [ ${#packages[@]} -gt 0 ]; then
+if [ ${#package_list[@]} -gt 0 ]; then
     log "Installing requested apt packages."
     export DEBIAN_FRONTEND=noninteractive
-    install_apt_packages "${packages[@]}"
+    install_apt_packages "${package_list[@]}"
 fi

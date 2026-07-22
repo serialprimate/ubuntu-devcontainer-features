@@ -2,9 +2,9 @@
     "name": "OS Packages",
     "id": "os-packages",
     "version": "1.0.0",
-    "description": "Install apt packages with a consistent, size-conscious feature pattern.",
+    "description": "Install apt packages.",
     "options": {
-        "packages": {
+        "aptPackages": {
             "type": "string",
             "default": "",
             "description": "Comma-separated list of apt packages to install."

@@ -10,7 +10,7 @@
                 "version": "lts"
             },
             "npm-packages": {
-                "npmGlobalPackages": "markdownlint-cli2"
+                "npmPackages": "markdownlint-cli2"
             }
         }
     }
