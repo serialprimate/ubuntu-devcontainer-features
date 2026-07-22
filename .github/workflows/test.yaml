@@ -26,8 +26,10 @@ jobs:
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: playwright
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
-          - feature: python
+          - feature: os-python
             baseImage: ubuntu:latest
+          - feature: pipx-packages
+            baseImage: mcr.microsoft.com/devcontainers/python:3.14
     steps:
       - uses: actions/checkout@v7
 
@@ -49,7 +51,8 @@ jobs:
           - os-packages
           - pi
           - playwright
-          - python
+          - os-python
+          - pipx-packages
     steps:
       - uses: actions/checkout@v7
 

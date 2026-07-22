@@ -1,0 +1,34 @@
+{
+    "name": "OS Python",
+    "id": "os-python",
+    "version": "1.0.0",
+    "description": "Install Python and optional pip, pipx, and venv support.",
+    "options": {
+        "version": {
+            "type": "string",
+            "enum": [
+                "3.11",
+                "3.12",
+                "3.13",
+                "3.14"
+            ],
+            "default": "3.14",
+            "description": "Python version to install."
+        },
+        "installPip": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install pip."
+        },
+        "installPipx": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install pipx."
+        },
+        "installVenv": {
+            "type": "boolean",
+            "default": true,
+            "description": "Ensure venv support is available."
+        }
+    }
+}

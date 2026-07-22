@@ -1,0 +1,20 @@
+{
+    "pipx-packages": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./os-python",
+            "./pipx-packages"
+        ],
+        "features": {
+            "os-python": {
+                "version": "3.14",
+                "installPip": true,
+                "installPipx": true,
+                "installVenv": true
+            },
+            "pipx-packages": {
+                "pipxPackages": "black"
+            }
+        }
+    }
+}
