@@ -3,6 +3,7 @@
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./node",
+            "./npm-packages",
             "./os-packages",
             "./cli-tools",
             "./codex",
@@ -13,8 +14,9 @@
         ],
         "features": {
             "node": {
-                "version": "24",
-                "installCorepack": true,
+                "version": "lts"
+            },
+            "npm-packages": {
                 "npmGlobalPackages": "markdownlint-cli2"
             },
             "os-packages": {

@@ -12,8 +12,7 @@ source dev-container-features-test-lib
 
 # Tests
 
-# Verify the selected Node.js version and Corepack installation.
-check "Node.js 24 is installed" bash -c 'node --version | grep -E "^v24\."'
-check "Corepack is installed" corepack --version
+# Verify npm is available for global package installation.
+check "npm is installed" npm --version
 
 reportResults

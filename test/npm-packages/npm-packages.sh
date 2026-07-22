@@ -12,7 +12,7 @@ source dev-container-features-test-lib
 
 # Tests
 
-# Verify the default Node.js installation.
-check "Node.js 24 is installed" bash -c 'node --version | grep -E "^v24\."'
+# Verify the configured global npm package installation.
+check "markdownlint-cli2 is installed" markdownlint-cli2 --version
 
 reportResults

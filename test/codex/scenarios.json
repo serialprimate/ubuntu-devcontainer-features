@@ -7,8 +7,7 @@
         ],
         "features": {
             "node": {
-                "version": "24",
-                "installCorepack": false
+                "version": "lts"
             },
             "codex": {
                 "version": "latest"

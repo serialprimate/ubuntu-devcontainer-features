@@ -1,17 +1,16 @@
 {
-    "chromium-without-system-dependencies": {
+    "npm-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./node",
-            "./playwright"
+            "./npm-packages"
         ],
         "features": {
             "node": {
                 "version": "lts"
             },
-            "playwright": {
-                "browser": "chromium",
-                "installSystemDeps": false
+            "npm-packages": {
+                "npmGlobalPackages": "markdownlint-cli2"
             }
         }
     }
