@@ -25,12 +25,12 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 
 | Feature | Description | Dependencies |
 | --- | --- | --- |
-| `os-packages` | Installs a comma-separated list of Ubuntu apt packages. | `apt-get` when packages are selected. |
+| `apt-packages` | Installs a comma-separated list of Ubuntu apt packages. | `apt-get` when packages are selected. |
 | `user` | Creates a development user with configurable identity, password, shell, and optional sudo access. | Standard Ubuntu account-management commands; sudo must already be installed when selected. |
 | `node` | Installs Node.js. | `apt-get`, `curl`, and `gnupg`; the feature installs these prerequisites itself. |
 | `npm-packages` | Installs selected npm packages globally. | npm, provided by a preceding Node.js feature or base image. |
-| `os-python` | Installs a selected Python version with optional pip, pipx, and venv support. | `apt-get`. |
-| `pipx-packages` | Installs selected packages globally with pipx. | pipx and Python 3, provided by a preceding OS Python feature or base image. |
+| `apt-python` | Installs a selected Python version with optional pip, pipx, and venv support. | `apt-get`. |
+| `pipx-packages` | Installs selected packages globally with pipx. | pipx and Python 3, provided by a preceding APT Python feature or base image. |
 | `cli-tools` | Installs Brave Search CLI, Context7, Firecrawl CLI, and Tavily CLI independently. | Context7 and Firecrawl require Node.js and npm. Brave requires `curl`. Tavily requires Python 3 and pipx, installing pipx when needed. |
 | `codex` | Installs the OpenAI Codex CLI. | Node.js and npm. |
 | `pi` | Installs the Pi coding agent CLI. | Node.js and npm. |
