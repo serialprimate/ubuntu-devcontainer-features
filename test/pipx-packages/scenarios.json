@@ -1,5 +1,23 @@
 {
-    "pipx-packages": {
+    "0-packages": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-python",
+            "./pipx-packages"
+        ],
+        "features": {
+            "apt-python": {
+                "version": "3.14",
+                "installPip": true,
+                "installPipx": true,
+                "installVenv": true
+            },
+            "pipx-packages": {
+                "pipxPackages": ""
+            }
+        }
+    },
+    "1-package": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",
@@ -14,6 +32,24 @@
             },
             "pipx-packages": {
                 "pipxPackages": "black"
+            }
+        }
+    },
+    "2-packages": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-python",
+            "./pipx-packages"
+        ],
+        "features": {
+            "apt-python": {
+                "version": "3.14",
+                "installPip": true,
+                "installPipx": true,
+                "installVenv": true
+            },
+            "pipx-packages": {
+                "pipxPackages": "black,ruff"
             }
         }
     }

@@ -1,9 +1,25 @@
 {
-    "tree": {
+    "0-packages": {
+        "image": "ubuntu:latest",
+        "features": {
+            "apt-packages": {
+                "aptPackages": ""
+            }
+        }
+    },
+    "1-package": {
         "image": "ubuntu:latest",
         "features": {
             "apt-packages": {
                 "aptPackages": "tree"
+            }
+        }
+    },
+    "2-packages": {
+        "image": "ubuntu:latest",
+        "features": {
+            "apt-packages": {
+                "aptPackages": "tree,curl"
             }
         }
     }

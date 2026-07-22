@@ -1,5 +1,20 @@
 {
-    "npm-packages": {
+    "0-packages": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./npm-packages"
+        ],
+        "features": {
+            "node": {
+                "version": "lts"
+            },
+            "npm-packages": {
+                "npmPackages": ""
+            }
+        }
+    },
+    "1-package": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./node",
@@ -11,6 +26,21 @@
             },
             "npm-packages": {
                 "npmPackages": "markdownlint-cli2"
+            }
+        }
+    },
+    "2-packages": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./node",
+            "./npm-packages"
+        ],
+        "features": {
+            "node": {
+                "version": "lts"
+            },
+            "npm-packages": {
+                "npmPackages": "markdownlint-cli2,prettier"
             }
         }
     }
