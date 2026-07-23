@@ -1,5 +1,5 @@
 {
-    "chromium-without-system-dependencies": {
+    "chromium": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./node",
@@ -10,8 +10,7 @@
                 "version": "lts"
             },
             "playwright": {
-                "browser": "chromium",
-                "installSystemDeps": false
+                "browser": "chromium"
             }
         }
     }
