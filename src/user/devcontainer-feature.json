@@ -2,7 +2,7 @@
     "name": "User",
     "id": "user",
     "version": "1.0.0",
-    "description": "Create a development user with configurable identity, password, shell, and sudo access.",
+    "description": "Create a user with configurable identity, password, shell, and sudo access.",
     "options": {
         "username": {
             "type": "string",
@@ -12,17 +12,17 @@
         "configurePassword": {
             "type": "boolean",
             "default": true,
-            "description": "Configure the account password when passwordCrypt is set."
+            "description": "Configure the account password when passwordHash is set."
         },
-        "passwordCrypt": {
+        "passwordHash": {
             "type": "string",
             "default": "",
-            "description": "Crypt-formatted password hash. Leave blank to create a password-locked account."
+            "description": "Crypt-formatted password hash. Only leave blank for a password-locked account."
         },
         "configureSudo": {
             "type": "boolean",
             "default": false,
-            "description": "Grant the user password-protected sudo access. Requires passwordCrypt."
+            "description": "Grant the user password-protected sudo access. Requires passwordHash."
         },
         "shell": {
             "type": "string",
