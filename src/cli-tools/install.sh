@@ -34,30 +34,14 @@ if [ "${install_brave}" = "true" ]; then
     require_command curl
     require_command sh
 fi
-if [ "${install_tavily}" = "true" ] && ! command -v pipx >/dev/null 2>&1; then
-    require_command apt-get
-fi
 if [ "${install_tavily}" = "true" ]; then
-    require_command python3
+    require_command pipx
 fi
 
 # Installation
 
 # Install functions.
-install_apt_packages() {
-    apt-get update
-    apt-get install -y --no-install-recommends "$@"
-    apt-get clean
-    rm -rf /var/lib/apt/lists/*
-}
-
-# Prepare pipx's shared environment for release-age-aware installations.
-initialize_pipx_shared_environment() {
-    if [ ! -x /opt/pipx/shared/bin/python ]; then
-        python3 -m venv /opt/pipx/shared
-    fi
-    /opt/pipx/shared/bin/python -m pip install --upgrade pip
-}
+# No install functions are required
 
 # Install packages.
 # 1. Brave CLI
@@ -80,12 +64,6 @@ fi
 
 # 4. Tavily CLI
 if [ "${install_tavily}" = "true" ]; then
-    if ! command -v pipx >/dev/null 2>&1; then
-        export DEBIAN_FRONTEND=noninteractive
-        log "Installing pipx."
-        install_apt_packages pipx
-    fi
     log "Installing Tavily CLI."
-    initialize_pipx_shared_environment
     pipx install --global --pip-args="--uploaded-prior-to=P${min_release_age}D" tavily-cli
 fi

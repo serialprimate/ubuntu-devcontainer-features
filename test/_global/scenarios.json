@@ -2,6 +2,7 @@
     "all_features": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
+            "./apt-python",
             "./node",
             "./npm-packages",
             "./apt-packages",
@@ -9,11 +10,16 @@
             "./codex",
             "./pi",
             "./playwright",
-            "./apt-python",
             "./pipx-packages",
             "./user"
         ],
         "features": {
+            "apt-python": {
+                "version": "3.14",
+                "installPip": true,
+                "installPipx": true,
+                "installVenv": true
+            },
             "node": {
                 "version": "lts"
             },
@@ -38,12 +44,6 @@
             "playwright": {
                 "browser": "chromium",
                 "installSystemDeps": true
-            },
-            "apt-python": {
-                "version": "3.14",
-                "installPip": true,
-                "installPipx": true,
-                "installVenv": true
             },
             "pipx-packages": {
                 "pipxPackages": "black"

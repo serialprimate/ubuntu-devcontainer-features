@@ -20,6 +20,9 @@ for option in "${install_pip}" "${install_pipx}" "${install_venv}"; do
         *) error "Boolean options must be true or false." ;;
     esac
 done
+if [ "$install_pipx" == "true" ] && [ "$install_venv" == "false" ]; then
+    error "INSTALLPIPX requires INSTALLVENV to be true."
+fi
 
 # Prerequisites
 
@@ -35,6 +38,12 @@ install_apt_packages() {
     apt-get install -y --no-install-recommends "$@"
     apt-get clean
     rm -rf /var/lib/apt/lists/*
+}
+initialize_pipx_shared_environment() {
+    if [ ! -x /opt/pipx/shared/bin/python ]; then
+        python3 -m venv /opt/pipx/shared
+    fi
+    /opt/pipx/shared/bin/python -m pip install --upgrade pip
 }
 
 # Install packages.
@@ -52,3 +61,7 @@ fi
 export DEBIAN_FRONTEND=noninteractive
 log "Installing Python ${python_version}."
 install_apt_packages "${packages[@]}"
+
+if [ "${install_pipx}" = "true" ]; then
+    initialize_pipx_shared_environment
+fi
