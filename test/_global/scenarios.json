@@ -42,8 +42,7 @@
                 "version": "latest"
             },
             "playwright": {
-                "browser": "chromium",
-                "installSystemDeps": true
+                "browser": "chromium"
             },
             "pipx-packages": {
                 "pipxPackages": "black"
