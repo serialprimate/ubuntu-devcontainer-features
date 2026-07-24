@@ -12,7 +12,7 @@
         "minReleaseAge": {
             "type": "string",
             "default": "7",
-            "description": "Minimum release age in days for pipx installation."
+            "description": "Minimum release age in days for package installation."
         }
     }
 }

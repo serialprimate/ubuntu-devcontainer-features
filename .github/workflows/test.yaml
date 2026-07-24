@@ -12,8 +12,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - feature: cli-tools
-            baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
+          # Feature depends on pip version 26.1 or higher.
+          # - feature: cli-tools
+          #   baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: codex
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: node
@@ -28,8 +29,9 @@ jobs:
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: apt-python
             baseImage: ubuntu:latest
-          - feature: pipx-packages
-            baseImage: mcr.microsoft.com/devcontainers/python:3.14
+          # Feature depends on pip version 26.1 or higher.
+          # - feature: pipx-packages
+          #   baseImage: mcr.microsoft.com/devcontainers/python:3.14
     steps:
       - uses: actions/checkout@v7
 

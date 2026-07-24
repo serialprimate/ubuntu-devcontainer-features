@@ -27,7 +27,7 @@
         "minReleaseAge": {
             "type": "string",
             "default": "7",
-            "description": "Minimum release age in days for npm-based CLI installation."
+            "description": "Minimum release age in days for Context7, Firecrawl and Tavily CLI installation."
         }
     }
 }

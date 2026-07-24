@@ -7,9 +7,6 @@
         "version": {
             "type": "string",
             "enum": [
-                "3.11",
-                "3.12",
-                "3.13",
                 "3.14"
             ],
             "default": "3.14",
@@ -23,7 +20,7 @@
         "installPipx": {
             "type": "boolean",
             "default": true,
-            "description": "Install pipx."
+            "description": "Install pipx. Requires venv to be installed."
         },
         "installVenv": {
             "type": "boolean",
