@@ -1,7 +1,7 @@
 {
     "name": "User",
     "id": "user",
-    "version": "1.0.0",
+    "version": "0.1.0-dev",
     "description": "Create a user with configurable identity, password, shell, and sudo access.",
     "options": {
         "username": {

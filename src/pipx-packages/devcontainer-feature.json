@@ -1,7 +1,7 @@
 {
     "name": "pipx Packages",
     "id": "pipx-packages",
-    "version": "1.0.0",
+    "version": "0.1.0-dev",
     "description": "Install pipx packages globally.",
     "options": {
         "pipxPackages": {

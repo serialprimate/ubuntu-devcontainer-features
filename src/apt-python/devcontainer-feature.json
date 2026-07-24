@@ -1,7 +1,7 @@
 {
     "name": "APT Python",
     "id": "apt-python",
-    "version": "1.0.0",
+    "version": "0.1.0-dev",
     "description": "Install Python and optional pip, pipx, and venv apt packages.",
     "options": {
         "version": {
