@@ -3,13 +3,13 @@
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./node",
-            "./cli-tools"
+            "./search-cli-tools"
         ],
         "features": {
             "node": {
                 "version": "lts"
             },
-            "cli-tools": {
+            "search-cli-tools": {
                 "installBrave": false,
                 "installContext7": true,
                 "installFirecrawl": false,
@@ -22,7 +22,7 @@
         "overrideFeatureInstallOrder": [
             "./apt-python",
             "./node",
-            "./cli-tools"
+            "./search-cli-tools"
         ],
         "features": {
             "apt-python": {
@@ -34,7 +34,7 @@
             "node": {
                 "version": "lts"
             },
-            "cli-tools": {
+            "search-cli-tools": {
                 "installBrave": true,
                 "installContext7": true,
                 "installFirecrawl": true,

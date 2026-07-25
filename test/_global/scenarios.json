@@ -6,7 +6,7 @@
             "./node",
             "./npm-packages",
             "./apt-packages",
-            "./cli-tools",
+            "./search-cli-tools",
             "./codex",
             "./pi",
             "./playwright",
@@ -29,7 +29,7 @@
             "apt-packages": {
                 "aptPackages": "tree"
             },
-            "cli-tools": {
+            "search-cli-tools": {
                 "installBrave": true,
                 "installContext7": true,
                 "installFirecrawl": true,

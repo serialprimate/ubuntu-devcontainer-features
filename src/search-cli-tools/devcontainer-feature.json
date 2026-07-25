@@ -1,8 +1,8 @@
 {
-    "name": "CLI Tools",
-    "id": "cli-tools",
+    "name": "Search CLI Tools",
+    "id": "search-cli-tools",
     "version": "0.1.0-dev",
-    "description": "Install a set of developer CLI tools.",
+    "description": "Install a set of developer search CLI tools.",
     "options": {
         "installBrave": {
             "type": "boolean",

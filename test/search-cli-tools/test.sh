@@ -12,7 +12,7 @@ source dev-container-features-test-lib
 
 # Tests
 
-# Verify all default CLI tools are installed.
+# Verify all default search CLI tools are installed.
 check "Brave CLI is installed" bx --help
 check "Context7 CLI is installed" ctx7 --help
 check "Firecrawl CLI is installed" firecrawl --help
