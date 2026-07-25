@@ -2,12 +2,12 @@
     "name": "pipx Packages",
     "id": "pipx-packages",
     "version": "0.1.0-dev",
-    "description": "Install pipx packages globally.",
+    "description": "Install pipx global packages.",
     "options": {
         "pipxPackages": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of packages to install globally with pipx."
+            "description": "Comma-separated list of pipx global packages to install."
         },
         "minReleaseAge": {
             "type": "string",

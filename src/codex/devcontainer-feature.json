@@ -2,12 +2,12 @@
     "name": "Codex",
     "id": "codex",
     "version": "0.1.0-dev",
-    "description": "Install the OpenAI Codex CLI.",
+    "description": "Install the Codex coding agent CLI as a global package.",
     "options": {
         "version": {
             "type": "string",
             "default": "latest",
-            "description": "Version of the Codex package to install."
+            "description": "Version of the Codex coding agent global package to install."
         },
         "minReleaseAge": {
             "type": "string",

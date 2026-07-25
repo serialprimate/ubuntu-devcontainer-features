@@ -2,12 +2,12 @@
     "name": "npm Packages",
     "id": "npm-packages",
     "version": "0.1.0-dev",
-    "description": "Install npm packages globally.",
+    "description": "Install global npm packages.",
     "options": {
         "npmPackages": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of npm packages to install globally."
+            "description": "Comma-separated list of global npm packages to install."
         },
         "minReleaseAge": {
             "type": "string",

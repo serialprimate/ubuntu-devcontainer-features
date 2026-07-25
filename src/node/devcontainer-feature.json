@@ -2,7 +2,7 @@
     "name": "Node.js",
     "id": "node",
     "version": "0.1.0-dev",
-    "description": "Install Node.js.",
+    "description": "Install Node.js apt packages from NodeSource.",
     "options": {
         "version": {
             "type": "string",
@@ -14,7 +14,7 @@
                 "latest"
             ],
             "default": "lts",
-            "description": "Node.js major version to install."
+            "description": "Node.js version to install."
         }
     }
 }

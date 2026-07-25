@@ -2,7 +2,7 @@
     "name": "Playwright",
     "id": "playwright",
     "version": "0.1.0-dev",
-    "description": "Install the Playwright runtime and optional browser dependencies.",
+    "description": "Install the Playwright runtime and browser dependency.",
     "containerEnv": {
         "PLAYWRIGHT_BROWSERS_PATH": "/ms-playwright"
     },

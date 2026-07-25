@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository provides reusable Dev Container Features for assembling a practical Ubuntu development environment. Each feature is independently versioned and published as an OCI artifact to GitHub Container Registry (GHCR). The collection is tested from `ubuntu:latest`; integration scenarios compose the local features to verify the complete toolchain.
+This repository provides reusable Dev Container Features for assembling a practical Ubuntu development environment. Each feature is independently versioned and published as an OCI artifact to GitHub Container Registry (GHCR). All local dev container features' test scenarios are based on `ubuntu:latest`. The global integration scenario composes the local features to verify the complete toolchain and is based on `ubuntu:latest`.
 
 Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-features/<feature>:<major>`. The exact available tags are published by the release workflow.
 
@@ -23,24 +23,22 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 
 ## Dev Container Features
 
-| Feature | Description | Dependencies |
-| --- | --- | --- |
-| `apt-packages` | Installs a comma-separated list of Ubuntu apt packages. | `apt-get` when packages are selected. |
-| `user` | Creates a development user with configurable identity, password, shell, and optional sudo access. | Standard Ubuntu account-management commands; sudo must already be installed when selected. |
-| `node` | Installs Node.js. | `apt-get`, `curl`, and `gnupg`; the feature installs these prerequisites itself. |
-| `npm-packages` | Installs selected npm packages globally. | npm, provided by a preceding Node.js feature or base image. |
-| `apt-python` | Installs a selected Python version with optional pip, pipx, and venv support. | `apt-get`. |
-| `pipx-packages` | Installs selected packages globally with pipx. | pipx and Python 3, provided by a preceding APT Python feature or base image. |
-| `search-cli-tools` | Installs Brave Search CLI, Context7, Firecrawl CLI, and Tavily CLI independently. | Context7 and Firecrawl require Node.js and npm. Brave requires `curl`. Tavily requires Python 3 and pipx, installing pipx when needed. |
-| `codex` | Installs the OpenAI Codex CLI. | Node.js and npm. |
-| `pi` | Installs the Pi coding agent CLI. | Node.js and npm. |
-| `playwright` | Installs Playwright, a selected browser runtime, and optional browser system dependencies. | Node.js and npm; `apt-get` when system dependencies are selected. |
+| Feature | Description |
+| --- | --- |
+| `apt-packages` | Install default apt OS packages. |
+| `user` | Create a user with username, password, shell, and sudo access. |
+| `node` | Install Node.js apt packages from NodeSource. |
+| `npm-packages` | Install global npm packages. |
+| `apt-python` | Install default python and optional pip, pipx, and venv apt OS packages. |
+| `pipx-packages` | Install pipx global packages. |
+| `search-cli-tools` | Install developer search CLI tools. |
+| `codex` | Install the Codex coding agent CLI as a global package. |
+| `pi` | Install the Pi coding agent CLI as a global package. |
+| `playwright` | Install the Playwright runtime and browser dependency. |
 
-Feature-specific options are declared in each feature's `devcontainer-feature.json`. Compose the local `node` feature before an npm-dependent local feature when testing from a minimal Ubuntu image. The global integration test demonstrates this composition:
+Feature-specific options are declared in each feature's `devcontainer-feature.json`.
 
-```bash
-devcontainer features test --global-scenarios-only .
-```
+Compose a `node` feature or base image before an npm-dependent local feature. Likewise, compose a `python` and/or `pipx` feature (e.g. `apt-python`) or base image before a pipx-dependent local feature. As a security feature and to support older versions of `pipx` (e.g. installed by APT in Ubuntu 26.04), the shared `pipx` virtual environment must have a minimum `pip` release of 26.1 to support the minimum release age option supported by local features. The `apt-python` feature will install the latest version of `pip` in the global shared `pipx` virtual environment.
 
 ## References
 
@@ -50,7 +48,6 @@ devcontainer features test --global-scenarios-only .
 - [Feature distribution specification](https://containers.dev/implementors/features-distribution/): OCI distribution and collection publishing requirements.
 - [Dev Container CLI](https://github.com/devcontainers/cli): CLI used locally and in CI to package and test features.
 - [Dev Container CLI: Testing Dev Container Features](https://github.com/devcontainers/cli/blob/f683c29f64a20109b4453e5149807e390ff65133/docs/features/test.md): Testing features locally and in CI.
-- [Dev Container Features index](https://containers.dev/features): Public index and discovery service for published feature collections.
 
 ### Publishing and CI
 
