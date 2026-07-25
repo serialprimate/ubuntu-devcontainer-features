@@ -38,6 +38,11 @@
             "type": "string",
             "default": "1000",
             "description": "Numeric GID for the user."
+        },
+        "groups": {
+            "type": "string",
+            "default": "",
+            "description": "Comma-separated list of groups to add the user to."
         }
     }
 }

@@ -11,6 +11,17 @@ configure_sudo="${CONFIGURESUDO:-false}"
 shell="${SHELL:-/bin/bash}"
 user_uid="${USERUID:-1000}"
 user_gid="${USERGID:-1000}"
+groups=()
+if [ -n "${GROUPS:-}" ]; then
+    IFS=',' read -r -a requested_groups <<< "${GROUPS}"
+    for group in "${requested_groups[@]}"; do
+        group="${group#"${group%%[![:space:]]*}"}"
+        group="${group%"${group##*[![:space:]]}"}"
+        if [ -n "${group}" ]; then
+            groups+=("${group}")
+        fi
+    done
+fi
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -80,7 +91,19 @@ if [ "${configure_password}" = "true" ] && [ -n "${password_hash}" ]; then
     usermod --password "${password_hash}" "${username}"
 fi
 
-# 3. Sudo
+# 3. Groups
+if [ ${#groups[@]} -gt 0 ]; then
+    log "Adding ${username} to existing groups."
+    for group in "${groups[@]}"; do
+        if ! getent group "${group}" >/dev/null 2>&1; then
+            log "Skipping missing group ${group}."
+            continue
+        fi
+        usermod --append --groups "${group}" "${username}"
+    done
+fi
+
+# 4. Sudo
 if [ "${configure_sudo}" = "true" ]; then
     log "Granting sudo access to ${username}."
     printf '%s ALL=(root) ALL\n' "${username}" > "/etc/sudoers.d/${username}"
