@@ -2,7 +2,7 @@
     "name": "User",
     "id": "user",
     "version": "0.1.0-dev",
-    "description": "Create a user with username, password, shell, and sudo access.",
+    "description": "Create a user with username, password, shell, groups, and sudo access.",
     "options": {
         "username": {
             "type": "string",
