@@ -1,13 +1,13 @@
 
 # User (user)
 
-Create a user with configurable identity, password, shell, and sudo access.
+Create a user with username, password, shell, and sudo access.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/user:1": {}
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/user:0": {}
 }
 ```
 
@@ -17,15 +17,15 @@ Create a user with configurable identity, password, shell, and sudo access.
 |-----|-----|-----|-----|
 | username | Name of the user to create. | string | dev |
 | configurePassword | Configure the account password when passwordHash is set. | boolean | true |
-| passwordHash | Crypt-formatted password hash. Leave blank to create a password-locked account. | string | - |
-| configureSudo | Grant the user password-protected sudo access. Requires passwordHash. | boolean | false |
-| shell | Absolute path to the user's login shell. | string | /bin/bash |
+| passwordHash | Crypt-formatted password hash. Blank for a password-locked account. | string | - |
+| configureSudo | Configure user password-protected sudo access. Requires passwordHash. | boolean | false |
+| shell | Path to the user's login shell. | string | /bin/bash |
 | userUid | Numeric UID for the user. | string | 1000 |
 | userGid | Numeric GID for the user. | string | 1000 |
 
 ## Notes
 
-Creates a user with a configurable username, UID, GID, login shell, password hash, and optional sudo access. If an existing user has the requested UID, the feature removes that user before creating the requested account.
+Creates a user with a configurable username, UID, GID, login shell, password hash, and optional sudo access. If a pre-existing user has the requested UID, the feature removes that user before creating the requested account.
 
 The `passwordHash` option must be a crypt-formatted password hash. A crypt-formatted password hash can be generated with the following command:
 

@@ -1,13 +1,13 @@
 
 # APT Python (apt-python)
 
-Install Python and optional pip, pipx, and venv support.
+Install default python and optional pip, pipx, and venv apt OS packages.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/apt-python:1": {}
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/apt-python:0": {}
 }
 ```
 
@@ -17,9 +17,12 @@ Install Python and optional pip, pipx, and venv support.
 |-----|-----|-----|-----|
 | version | Python version to install. | string | 3.14 |
 | installPip | Install pip. | boolean | true |
-| installPipx | Install pipx. | boolean | true |
-| installVenv | Ensure venv support is available. | boolean | true |
+| installPipx | Install pipx. Requires venv to be installed. | boolean | true |
+| installVenv | Install venv. | boolean | true |
 
+## Notes
+
+The version of pipx installed by APT in Ubuntu 26.04 does not support the `--cooldown` option. As a workaround, enabling pipx support in this feature will pre-initialise the standard shared pipx virtual environment at `/opt/pipx/shared` and upgrade it to use the latest version of pip so that the other devcontainer features of this repository can support a minimum release age option.
 
 
 ---

@@ -1,13 +1,13 @@
 
 # Node.js (node)
 
-Install Node.js.
+Install Node.js apt packages from NodeSource.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/node:1": {}
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/node:0": {}
 }
 ```
 
@@ -15,7 +15,7 @@ Install Node.js.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Node.js major version to install. | string | 24 |
+| version | Node.js version to install. | string | lts |
 
 
 
