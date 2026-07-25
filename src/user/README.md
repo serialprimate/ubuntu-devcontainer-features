@@ -26,7 +26,7 @@ Create a user with username, password, shell, and sudo access.
 
 ## Notes
 
-Creates a user with a configurable username, UID, GID, login shell, password hash, groups, and sudo access. If a pre-existing user has the requested UID, the feature removes that user before creating the requested account.
+Creates a user with a configurable username, UID, GID, login shell, password hash, and optional sudo access. If a pre-existing user has the requested UID, the feature removes that user before creating the requested account.
 
 The `passwordHash` option must be a crypt-formatted password hash. A crypt-formatted password hash can be generated with the following command:
 
