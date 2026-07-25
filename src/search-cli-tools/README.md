@@ -1,13 +1,13 @@
 
-# CLI Tools (cli-tools)
+# Search CLI Tools (search-cli-tools)
 
-Install a set of developer CLI tools.
+Install a set of developer search CLI tools.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/cli-tools:1": {}
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/search-cli-tools:1": {}
 }
 ```
 
@@ -25,4 +25,4 @@ Install a set of developer CLI tools.
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/serialprimate/ubuntu-devcontainer-features/blob/main/src/cli-tools/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/serialprimate/ubuntu-devcontainer-features/blob/main/src/search-cli-tools/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

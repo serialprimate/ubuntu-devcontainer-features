@@ -31,7 +31,7 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 | `npm-packages` | Installs selected npm packages globally. | npm, provided by a preceding Node.js feature or base image. |
 | `apt-python` | Installs a selected Python version with optional pip, pipx, and venv support. | `apt-get`. |
 | `pipx-packages` | Installs selected packages globally with pipx. | pipx and Python 3, provided by a preceding APT Python feature or base image. |
-| `cli-tools` | Installs Brave Search CLI, Context7, Firecrawl CLI, and Tavily CLI independently. | Context7 and Firecrawl require Node.js and npm. Brave requires `curl`. Tavily requires Python 3 and pipx, installing pipx when needed. |
+| `search-cli-tools` | Installs Brave Search CLI, Context7, Firecrawl CLI, and Tavily CLI independently. | Context7 and Firecrawl require Node.js and npm. Brave requires `curl`. Tavily requires Python 3 and pipx, installing pipx when needed. |
 | `codex` | Installs the OpenAI Codex CLI. | Node.js and npm. |
 | `pi` | Installs the Pi coding agent CLI. | Node.js and npm. |
 | `playwright` | Installs Playwright, a selected browser runtime, and optional browser system dependencies. | Node.js and npm; `apt-get` when system dependencies are selected. |

@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
           # Feature depends on pip version 26.1 or higher.
-          # - feature: cli-tools
+          # - feature: search-cli-tools
           #   baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: codex
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
@@ -46,7 +46,7 @@ jobs:
     strategy:
       matrix:
         features:
-          - cli-tools
+          - search-cli-tools
           - codex
           - node
           - npm-packages
