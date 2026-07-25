@@ -1,13 +1,13 @@
 
 # Playwright (playwright)
 
-Install the Playwright runtime and optional browser dependencies.
+Install the Playwright runtime and browser dependency.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/playwright:1": {}
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/playwright:0": {}
 }
 ```
 
@@ -15,9 +15,8 @@ Install the Playwright runtime and optional browser dependencies.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of the Playwright package to install. | string | 1.61.0 |
+| version | Version of the Playwright package to install. | string | latest |
 | browser | Browser to install for Playwright. | string | chromium |
-| installSystemDeps | Install the browser system dependencies. | boolean | true |
 | minReleaseAge | Minimum release age in days for npm installation. | string | 7 |
 
 

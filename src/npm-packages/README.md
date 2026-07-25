@@ -1,15 +1,13 @@
 
 # npm Packages (npm-packages)
 
-Install npm packages globally.
+Install global npm packages.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/npm-packages:1": {
-        "npmPackages": "markdownlint-cli2"
-    }
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/npm-packages:0": {}
 }
 ```
 
@@ -17,7 +15,7 @@ Install npm packages globally.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| npmPackages | Comma-separated list of npm packages to install globally. | string | - |
+| npmPackages | Comma-separated list of global npm packages to install. | string | - |
 | minReleaseAge | Minimum release age in days for npm installation. | string | 7 |
 
 

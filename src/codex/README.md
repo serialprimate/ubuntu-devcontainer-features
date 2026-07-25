@@ -1,13 +1,13 @@
 
 # Codex (codex)
 
-Install the OpenAI Codex CLI.
+Install the Codex coding agent CLI as a global package.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/codex:1": {}
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/codex:0": {}
 }
 ```
 
@@ -15,7 +15,7 @@ Install the OpenAI Codex CLI.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of the Codex package to install. | string | latest |
+| version | Version of the Codex coding agent global package to install. | string | latest |
 | minReleaseAge | Minimum release age in days for npm installation. | string | 7 |
 
 

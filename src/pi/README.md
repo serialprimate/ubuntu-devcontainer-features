@@ -1,13 +1,13 @@
 
 # Pi (pi)
 
-Install the Pi coding agent CLI.
+Install the Pi coding agent CLI as a global package.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/serialprimate/ubuntu-devcontainer-features/pi:1": {}
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/pi:0": {}
 }
 ```
 
@@ -15,8 +15,8 @@ Install the Pi coding agent CLI.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of the Pi package to install. | string | latest |
-| minReleaseAge | Minimum release age in days for npm installation. | string | 7 |
+| version | Version of the Pi coding agent global package to install. | string | latest |
+| minReleaseAge | Minimum release age in days for global npm installation. | string | 7 |
 
 
 
