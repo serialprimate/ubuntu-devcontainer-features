@@ -4,6 +4,26 @@
       "version": "4.0.0",
       "resolved": "ghcr.io/devcontainers/features/docker-in-docker@sha256:4fa87399214366e320d489991769c4f3f461e1ffe461f54eea78a41b34945bb5",
       "integrity": "sha256:4fa87399214366e320d489991769c4f3f461e1ffe461f54eea78a41b34945bb5"
+    },
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/apt-packages:0.1.0-dev": {
+      "version": "0.1.0-dev",
+      "resolved": "ghcr.io/serialprimate/ubuntu-devcontainer-features/apt-packages@sha256:946038af1a631beca5b11db3efb1107c2c5f571f622900399e08d0df3ba0a287",
+      "integrity": "sha256:946038af1a631beca5b11db3efb1107c2c5f571f622900399e08d0df3ba0a287"
+    },
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/node:0.1.0-dev": {
+      "version": "0.1.0-dev",
+      "resolved": "ghcr.io/serialprimate/ubuntu-devcontainer-features/node@sha256:65b64e9952ee81213ed59ca03d7c26d889fc9a697b9bd4fc3d209c5cec274296",
+      "integrity": "sha256:65b64e9952ee81213ed59ca03d7c26d889fc9a697b9bd4fc3d209c5cec274296"
+    },
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/npm-packages:0.1.0-dev": {
+      "version": "0.1.0-dev",
+      "resolved": "ghcr.io/serialprimate/ubuntu-devcontainer-features/npm-packages@sha256:c384f42eacab103e395291578f3d9666ff22d1bd835446280081c48811177ad8",
+      "integrity": "sha256:c384f42eacab103e395291578f3d9666ff22d1bd835446280081c48811177ad8"
+    },
+    "ghcr.io/serialprimate/ubuntu-devcontainer-features/user:0.1.0-dev": {
+      "version": "0.1.0-dev",
+      "resolved": "ghcr.io/serialprimate/ubuntu-devcontainer-features/user@sha256:4ab93a93bae4bf7376777b6b6bb2fcb266cdf79047064c6e08f6c2cdd1fdcfda",
+      "integrity": "sha256:4ab93a93bae4bf7376777b6b6bb2fcb266cdf79047064c6e08f6c2cdd1fdcfda"
     }
   }
 }

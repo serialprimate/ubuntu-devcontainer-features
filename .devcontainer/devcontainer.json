@@ -1,5 +1,5 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
+    "image": "ubuntu:latest",
     "customizations": {
         "vscode": {
             "settings": {
@@ -20,15 +20,24 @@
         }
     },
     "features": {
+        "ghcr.io/serialprimate/ubuntu-devcontainer-features/apt-packages:0.1.0-dev": {
+            "aptPackages": "ca-certificates, curl, fd-find, git, jq, less, openssh-client, ripgrep, tree, unzip, yq, zip"
+        },
         "ghcr.io/devcontainers/features/docker-in-docker:4": {
             "version": "latest",
             "moby": false,
-            "installDockerBuildx": true,
-            "installDockerComposeSwitch": false,
-            "disableIp6tables": false,
-            "iptablesSwitchAtRuntime": false
+            "dockerDashComposeVersion": "none"
+        },
+        "ghcr.io/serialprimate/ubuntu-devcontainer-features/node:0.1.0-dev": {
+            "version": "lts"
+        },
+        "ghcr.io/serialprimate/ubuntu-devcontainer-features/npm-packages:0.1.0-dev": {
+            "npmPackages": "@devcontainers/cli"
+        },
+        "ghcr.io/serialprimate/ubuntu-devcontainer-features/user:0.1.0-dev": {
+            "username": "dev",
+            "groups": "docker"
         }
     },
-    "remoteUser": "node",
-    "updateContentCommand": "npm install --global --ignore-scripts --min-release-age=7 @devcontainers/cli"
+    "remoteUser": "dev"
 }
