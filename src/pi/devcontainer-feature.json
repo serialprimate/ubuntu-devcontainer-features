@@ -2,17 +2,17 @@
     "name": "Pi",
     "id": "pi",
     "version": "0.1.0-dev",
-    "description": "Install the Pi coding agent CLI.",
+    "description": "Install the Pi coding agent CLI as a global package.",
     "options": {
         "version": {
             "type": "string",
             "default": "latest",
-            "description": "Version of the Pi package to install."
+            "description": "Version of the Pi coding agent global package to install."
         },
         "minReleaseAge": {
             "type": "string",
             "default": "7",
-            "description": "Minimum release age in days for npm installation."
+            "description": "Minimum release age in days for global npm installation."
         }
     }
 }

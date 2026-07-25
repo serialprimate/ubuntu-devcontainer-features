@@ -2,12 +2,12 @@
     "name": "APT Packages",
     "id": "apt-packages",
     "version": "0.1.0-dev",
-    "description": "Install apt packages.",
+    "description": "Install default apt OS packages.",
     "options": {
         "aptPackages": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of apt packages to install."
+            "description": "Comma-separated list of default apt OS packages to install."
         }
     }
 }
