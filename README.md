@@ -26,7 +26,7 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 | Feature | Description |
 | --- | --- |
 | `apt-packages` | Install default apt OS packages. |
-| `user` | Create a user with username, password, shell, and sudo access. |
+| `user` | Create a user with username, password, shell, groups, and sudo access. |
 | `node` | Install Node.js apt packages from NodeSource. |
 | `npm-packages` | Install global npm packages. |
 | `apt-python` | Install default python and optional pip, pipx, and venv apt OS packages. |
