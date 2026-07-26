@@ -1,4 +1,5 @@
 {
+    "name": "${localWorkspaceFolderBasename}-public",
     "image": "ubuntu:latest",
     "customizations": {
         "vscode": {
