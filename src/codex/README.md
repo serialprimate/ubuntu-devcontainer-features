@@ -16,7 +16,7 @@ Install the Codex coding agent CLI as a global package.
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | version | Version of the Codex coding agent global package to install. | string | latest |
-| minReleaseAge | Minimum release age in days for npm installation. | string | 7 |
+| minReleaseAge | Minimum npm release age in days. An empty string completely disables this feature. | string | 7 |
 
 
 

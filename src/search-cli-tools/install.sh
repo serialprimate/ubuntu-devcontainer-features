@@ -8,7 +8,7 @@ install_brave="${INSTALLBRAVE:-true}"
 install_context7="${INSTALLCONTEXT7:-true}"
 install_firecrawl="${INSTALLFIRECRAWL:-true}"
 install_tavily="${INSTALLTAVILY:-true}"
-min_release_age="${MINRELEASEAGE:-7}"
+min_release_age="${MINRELEASEAGE-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -25,7 +25,7 @@ for option in "${install_brave}" "${install_context7}" "${install_firecrawl}" "$
     esac
 done
 case "${min_release_age}" in
-    '' | *[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;;
+    *[!0-9]*) error "MINRELEASEAGE must be empty or a non-negative integer." ;;
     *) ;;
 esac
 
@@ -50,6 +50,13 @@ fi
 # No install functions are required
 
 # Install packages.
+npm_install_args=(--global --ignore-scripts)
+pipx_install_args=(--global)
+if [[ -n "${min_release_age}" ]]; then
+    npm_install_args+=(--min-release-age="${min_release_age}")
+    pipx_install_args+=(--pip-args="--uploaded-prior-to=P${min_release_age}D")
+fi
+
 # 1. Brave CLI
 if [[ "${install_brave}" = "true" ]]; then
     log "Installing Brave CLI."
@@ -60,17 +67,17 @@ fi
 # 2. Context7 CLI
 if [[ "${install_context7}" = "true" ]]; then
     log "Installing Context7 CLI."
-    npm install --global --ignore-scripts --min-release-age="${min_release_age}" ctx7
+    npm install "${npm_install_args[@]}" ctx7
 fi
 
 # 3. Firecrawl CLI
 if [[ "${install_firecrawl}" = "true" ]]; then
     log "Installing Firecrawl CLI."
-    npm install --global --ignore-scripts --min-release-age="${min_release_age}" firecrawl-cli
+    npm install "${npm_install_args[@]}" firecrawl-cli
 fi
 
 # 4. Tavily CLI
 if [[ "${install_tavily}" = "true" ]]; then
     log "Installing Tavily CLI."
-    pipx install --global --pip-args="--uploaded-prior-to=P${min_release_age}D" tavily-cli
+    pipx install "${pipx_install_args[@]}" tavily-cli
 fi

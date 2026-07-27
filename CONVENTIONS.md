@@ -42,8 +42,8 @@
 - Installers that invoke `apt` directly should use the shared `install_apt_packages` helper.
 - `install_apt_packages` should perform one complete apt cycle: `apt-get update`, `apt-get install -y --no-install-recommends`, `apt-get clean`, and removal of `/var/lib/apt/lists/*`.
 - Fail early with a clear message when an optional capability requires a missing prerequisite.
-- Use npm global installs with `--global --ignore-scripts --min-release-age`.
-- Use constrained pipx installs with pip’s `--uploaded-prior-to` argument.
+- Use npm global installs with `--global --ignore-scripts` and, when configured, `--min-release-age`.
+- Use pip’s `--uploaded-prior-to` argument for constrained pipx installs when configured.
 
 ## Feature Declarations
 

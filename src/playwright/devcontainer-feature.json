@@ -29,7 +29,7 @@
         "minReleaseAge": {
             "type": "string",
             "default": "7",
-            "description": "Minimum release age in days for npm installation."
+            "description": "Minimum npm release age in days. An empty string completely disables this feature."
         }
     }
 }
