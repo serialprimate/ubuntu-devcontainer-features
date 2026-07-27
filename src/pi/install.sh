@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Collect options.
 version="${VERSION:-latest}"
-min_release_age="${MINRELEASEAGE:-7}"
+min_release_age="${MINRELEASEAGE-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -17,7 +17,7 @@ error() {
 # Check option compatibility.
 [[ -n "${version}" ]] || error "VERSION must not be empty."
 case "${min_release_age}" in
-    '' | *[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;;
+    *[!0-9]*) error "MINRELEASEAGE must be empty or a non-negative integer." ;;
     *) ;;
 esac
 
@@ -34,5 +34,10 @@ require_command npm
 
 # Install packages.
 # 1. Pi
+npm_install_args=(--global --ignore-scripts)
+if [[ -n "${min_release_age}" ]]; then
+    npm_install_args+=(--min-release-age="${min_release_age}")
+fi
+
 log "Installing Pi ${version}."
-npm install --global --ignore-scripts --min-release-age="${min_release_age}" "@earendil-works/pi-coding-agent@${version}"
+npm install "${npm_install_args[@]}" "@earendil-works/pi-coding-agent@${version}"
