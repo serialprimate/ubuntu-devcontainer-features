@@ -5,7 +5,6 @@ set -euo pipefail
 
 # Collect options.
 username="${USERNAME:-dev}"
-configure_password="${CONFIGUREPASSWORD:-true}"
 password_hash="${PASSWORDHASH:-}"
 configure_sudo="${CONFIGURESUDO:-false}"
 shell="${SHELL:-/bin/bash}"
@@ -29,16 +28,13 @@ error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 
 # Check option compatibility.
 [ -n "${username}" ] || error "USERNAME must not be empty."
-for option in "${configure_password}" "${configure_sudo}"; do
-    case "${option}" in
-        true|false) ;;
-        *) error "Boolean options must be true or false." ;;
-    esac
-done
+case "${configure_sudo}" in
+    true|false) ;;
+    *) error "CONFIGURESUDO must be true or false." ;;
+esac
 case "${user_uid}" in ''|*[!0-9]*) error "UID must be a non-negative integer." ;; esac
 case "${user_gid}" in ''|*[!0-9]*) error "GID must be a non-negative integer." ;; esac
 [ -x "${shell}" ] || error "SHELL must be an installed executable: ${shell}"
-[ "${configure_sudo}" = "false" ] || [ -n "${password_hash}" ] || error "CONFIGURESUDO requires PASSWORDHASH to be set."
 
 # Prerequisites
 
@@ -86,7 +82,7 @@ groupadd --gid "${user_gid}" "${username}"
 useradd --uid "${user_uid}" --gid "${user_gid}" --create-home --shell "${shell}" "${username}"
 
 # 2. Password
-if [ "${configure_password}" = "true" ] && [ -n "${password_hash}" ]; then
+if [ -n "${password_hash}" ]; then
     log "Configuring password for ${username}."
     usermod --password "${password_hash}" "${username}"
 fi
@@ -106,6 +102,10 @@ fi
 # 4. Sudo
 if [ "${configure_sudo}" = "true" ]; then
     log "Granting sudo access to ${username}."
-    printf '%s ALL=(root) ALL\n' "${username}" > "/etc/sudoers.d/${username}"
+    if [ -n "${password_hash}" ]; then
+        printf '%s ALL=(root) ALL\n' "${username}" > "/etc/sudoers.d/${username}"
+    else
+        printf '%s ALL=(root) NOPASSWD: ALL\n' "${username}" > "/etc/sudoers.d/${username}"
+    fi
     chmod 0440 "/etc/sudoers.d/${username}"
 fi

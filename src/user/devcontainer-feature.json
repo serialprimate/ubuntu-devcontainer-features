@@ -9,20 +9,15 @@
             "default": "dev",
             "description": "Name of the user to create."
         },
-        "configurePassword": {
-            "type": "boolean",
-            "default": true,
-            "description": "Configure the account password when passwordHash is set."
-        },
         "passwordHash": {
             "type": "string",
             "default": "",
-            "description": "Crypt-formatted password hash. Blank for a password-locked account."
+            "description": "Crypt-formatted password hash. Blank to leave the password unset."
         },
         "configureSudo": {
             "type": "boolean",
             "default": false,
-            "description": "Configure user password-protected sudo access. Requires passwordHash."
+            "description": "Configure sudo access, passwordless when passwordHash is blank."
         },
         "shell": {
             "type": "string",
