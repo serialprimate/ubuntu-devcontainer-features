@@ -8,7 +8,7 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 
 ## Repository Structure
 
-```
+```plaintext
 .
 ├── src/                    # Feature definitions
 │   └── <feature>/

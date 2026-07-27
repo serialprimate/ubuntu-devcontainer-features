@@ -33,7 +33,7 @@
             "version": "lts"
         },
         "ghcr.io/serialprimate/ubuntu-devcontainer-features/npm-packages:0.1.0-dev": {
-            "npmPackages": "@devcontainers/cli"
+            "npmPackages": "@devcontainers/cli, markdownlint-cli2"
         },
         "ghcr.io/serialprimate/ubuntu-devcontainer-features/user:0.1.0-dev": {
             "username": "dev",
