@@ -4,5 +4,44 @@
         "features": {
             "user": {}
         }
+    },
+    "password-sudo": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-packages",
+            "./user"
+        ],
+        "features": {
+            "apt-packages": {
+                "aptPackages": "sudo"
+            },
+            "user": {
+                "passwordHash": "teobtLiiDGEOk",
+                "configureSudo": true
+            }
+        }
+    },
+    "passwordless-sudo": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-packages",
+            "./user"
+        ],
+        "features": {
+            "apt-packages": {
+                "aptPackages": "sudo"
+            },
+            "user": {
+                "configureSudo": true
+            }
+        }
+    },
+    "password-no-sudo": {
+        "image": "ubuntu:latest",
+        "features": {
+            "user": {
+                "passwordHash": "teobtLiiDGEOk"
+            }
+        }
     }
 }
