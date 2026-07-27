@@ -5,18 +5,21 @@ set -euo pipefail
 
 # Collect options.
 package_list=()
-IFS=',' read -r -a raw_packages <<< "${APTPACKAGES:-}"
+IFS=',' read -r -a raw_packages <<<"${APTPACKAGES:-}"
 for package in "${raw_packages[@]}"; do
     trimmed="${package#"${package%%[![:space:]]*}"}"
     trimmed="${trimmed%"${trimmed##*[![:space:]]}"}"
-    if [ -n "${trimmed}" ]; then
+    if [[ -n "${trimmed}" ]]; then
         package_list+=("${trimmed}")
     fi
 done
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
-error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+error() {
+    printf 'ERROR: %s\n' "$*" >&2
+    exit 1
+}
 
 # Check option compatibility.
 
@@ -24,7 +27,7 @@ error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 
 # Check required commands.
 require_command() { command -v "$1" >/dev/null 2>&1 || error "Required command not found: $1"; }
-if [ ${#package_list[@]} -gt 0 ]; then
+if [[ ${#package_list[@]} -gt 0 ]]; then
     require_command apt-get
 fi
 
@@ -40,7 +43,7 @@ install_apt_packages() {
 
 # Install packages.
 # 1. Requested apt packages
-if [ ${#package_list[@]} -gt 0 ]; then
+if [[ ${#package_list[@]} -gt 0 ]]; then
     log "Installing requested apt packages."
     export DEBIAN_FRONTEND=noninteractive
     install_apt_packages "${package_list[@]}"

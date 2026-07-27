@@ -15,6 +15,14 @@
 - To mitigate the risk of poisoned packages, npm, pip, pipx installations use their equivalent "minimum release age" options with a default value of seven days where this option is to be configurable.
 - Use lowercase `snake_case` for shell variables.
 
+### Linting
+
+- Use `shellcheck --enable=all` to lint shell scripts.
+
+### Formatting
+
+- Use `shfmt -i 4 -ci -w` to format shell scripts.
+
 ### Feature Installation Scripts
 
 - Keep feature installer scripts in the same section order and headings:

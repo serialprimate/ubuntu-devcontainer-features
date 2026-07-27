@@ -11,6 +11,7 @@ set -euo pipefail
 # Prerequisites
 
 # Load the dev container feature test library.
+# shellcheck source=/dev/null
 source dev-container-features-test-lib
 
 # Tests
@@ -31,7 +32,9 @@ check "Python 3.14 is installed" bash -c 'python3.14 --version | grep -E "^Pytho
 check "pipx is installed" pipx --version
 check "Black is installed" black --version
 check "Development user is installed" id dev
-check "Development user has UID 1000" bash -c '[ "$(id -u dev)" = "1000" ]'
-check "Development user has GID 1000" bash -c '[ "$(id -g dev)" = "1000" ]'
+# shellcheck disable=SC2016 # Expand expressions in the child shell.
+check "Development user has UID 1000" bash -c '[[ "$(id -u dev)" == "1000" ]]'
+# shellcheck disable=SC2016 # Expand expressions in the child shell.
+check "Development user has GID 1000" bash -c '[[ "$(id -g dev)" == "1000" ]]'
 
 reportResults

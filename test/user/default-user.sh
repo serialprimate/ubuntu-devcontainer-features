@@ -8,17 +8,23 @@ set -euo pipefail
 # Prerequisites
 
 # Load the dev container feature test library.
+# shellcheck source=/dev/null
 source dev-container-features-test-lib
 
 # Tests
 
 # Verify the feature creates its configured default user.
 check "Default user exists" id dev
-check "Default user has UID 1000" bash -c '[ "$(id -u dev)" = "1000" ]'
-check "Default user has GID 1000" bash -c '[ "$(id -g dev)" = "1000" ]'
-check "Default user has Bash shell" bash -c '[ "$(getent passwd dev | cut -d: -f7)" = "/bin/bash" ]'
-check "Default user has a locked password" bash -c '[ "$(passwd --status dev | awk "{print \$2}")" = "L" ]'
-check "Default user has no sudo access" bash -c '[ ! -e /etc/sudoers.d/dev ]'
-check "Default user has no additional groups" bash -c '[ "$(id -Gn dev)" = "dev" ]'
+# shellcheck disable=SC2016 # Expand expressions in the child shell.
+check "Default user has UID 1000" bash -c '[[ "$(id -u dev)" == "1000" ]]'
+# shellcheck disable=SC2016 # Expand expressions in the child shell.
+check "Default user has GID 1000" bash -c '[[ "$(id -g dev)" == "1000" ]]'
+# shellcheck disable=SC2016 # Expand expressions in the child shell.
+check "Default user has Bash shell" bash -c '[[ "$(getent passwd dev | cut -d: -f7)" == "/bin/bash" ]]'
+# shellcheck disable=SC2016 # Expand expressions in the child shell.
+check "Default user has a locked password" bash -c '[[ "$(passwd --status dev | awk "{print \$2}")" == "L" ]]'
+check "Default user has no sudo access" bash -c '[[ ! -e /etc/sudoers.d/dev ]]'
+# shellcheck disable=SC2016 # Expand expressions in the child shell.
+check "Default user has no additional groups" bash -c '[[ "$(id -Gn dev)" == "dev" ]]'
 
 reportResults

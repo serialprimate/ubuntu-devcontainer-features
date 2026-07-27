@@ -11,12 +11,12 @@ shell="${SHELL:-/bin/bash}"
 user_uid="${USERUID:-1000}"
 user_gid="${USERGID:-1000}"
 groups=()
-if [ -n "${GROUPS:-}" ]; then
-    IFS=',' read -r -a requested_groups <<< "${GROUPS}"
+if [[ -n "${GROUPS:-}" ]]; then
+    IFS=',' read -r -a requested_groups <<<"${GROUPS}"
     for group in "${requested_groups[@]}"; do
         group="${group#"${group%%[![:space:]]*}"}"
         group="${group%"${group##*[![:space:]]}"}"
-        if [ -n "${group}" ]; then
+        if [[ -n "${group}" ]]; then
             groups+=("${group}")
         fi
     done
@@ -24,17 +24,26 @@ fi
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
-error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+error() {
+    printf 'ERROR: %s\n' "$*" >&2
+    exit 1
+}
 
 # Check option compatibility.
-[ -n "${username}" ] || error "USERNAME must not be empty."
+[[ -n "${username}" ]] || error "USERNAME must not be empty."
 case "${configure_sudo}" in
-    true|false) ;;
+    true | false) ;;
     *) error "CONFIGURESUDO must be true or false." ;;
 esac
-case "${user_uid}" in ''|*[!0-9]*) error "UID must be a non-negative integer." ;; esac
-case "${user_gid}" in ''|*[!0-9]*) error "GID must be a non-negative integer." ;; esac
-[ -x "${shell}" ] || error "SHELL must be an installed executable: ${shell}"
+case "${user_uid}" in
+    '' | *[!0-9]*) error "UID must be a non-negative integer." ;;
+    *) ;;
+esac
+case "${user_gid}" in
+    '' | *[!0-9]*) error "GID must be a non-negative integer." ;;
+    *) ;;
+esac
+[[ -x "${shell}" ]] || error "SHELL must be an installed executable: ${shell}"
 
 # Prerequisites
 
@@ -50,7 +59,7 @@ require_command useradd
 require_command userdel
 require_command usermod
 require_command chmod
-if [ "${configure_sudo}" = "true" ]; then
+if [[ "${configure_sudo}" = "true" ]]; then
     require_command sudo
 fi
 
@@ -82,13 +91,13 @@ groupadd --gid "${user_gid}" "${username}"
 useradd --uid "${user_uid}" --gid "${user_gid}" --create-home --shell "${shell}" "${username}"
 
 # 2. Password
-if [ -n "${password_hash}" ]; then
+if [[ -n "${password_hash}" ]]; then
     log "Configuring password for ${username}."
     usermod --password "${password_hash}" "${username}"
 fi
 
 # 3. Groups
-if [ ${#groups[@]} -gt 0 ]; then
+if [[ ${#groups[@]} -gt 0 ]]; then
     log "Adding ${username} to existing groups."
     for group in "${groups[@]}"; do
         if ! getent group "${group}" >/dev/null 2>&1; then
@@ -100,12 +109,12 @@ if [ ${#groups[@]} -gt 0 ]; then
 fi
 
 # 4. Sudo
-if [ "${configure_sudo}" = "true" ]; then
+if [[ "${configure_sudo}" = "true" ]]; then
     log "Granting sudo access to ${username}."
-    if [ -n "${password_hash}" ]; then
-        printf '%s ALL=(root) ALL\n' "${username}" > "/etc/sudoers.d/${username}"
+    if [[ -n "${password_hash}" ]]; then
+        printf '%s ALL=(root) ALL\n' "${username}" >"/etc/sudoers.d/${username}"
     else
-        printf '%s ALL=(root) NOPASSWD: ALL\n' "${username}" > "/etc/sudoers.d/${username}"
+        printf '%s ALL=(root) NOPASSWD: ALL\n' "${username}" >"/etc/sudoers.d/${username}"
     fi
     chmod 0440 "/etc/sudoers.d/${username}"
 fi

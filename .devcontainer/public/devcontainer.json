@@ -22,7 +22,7 @@
     },
     "features": {
         "ghcr.io/serialprimate/ubuntu-devcontainer-features/apt-packages:0.1.0-dev": {
-            "aptPackages": "ca-certificates, curl, fd-find, git, jq, less, openssh-client, ripgrep, tree, unzip, yq, zip"
+            "aptPackages": "ca-certificates, curl, fd-find, git, jq, less, openssh-client, ripgrep, shellcheck, shfmt, tree, unzip, yq, zip"
         },
         "ghcr.io/devcontainers/features/docker-in-docker:4": {
             "version": "latest",

@@ -8,10 +8,13 @@ version="${VERSION:-lts}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
-error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+error() {
+    printf 'ERROR: %s\n' "$*" >&2
+    exit 1
+}
 
 # Check option compatibility.
-case "${version}" in 20|24|26) node_version="${version}" ;; lts) node_version=24 ;; latest) node_version=26 ;; *) error "VERSION must be 20, 24, 26, lts, or latest." ;; esac
+case "${version}" in 20 | 24 | 26) node_version="${version}" ;; lts) node_version=24 ;; latest) node_version=26 ;; *) error "VERSION must be 20, 24, 26, lts, or latest." ;; esac
 
 # Prerequisites
 
