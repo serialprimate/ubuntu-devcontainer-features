@@ -8,6 +8,7 @@ set -euo pipefail
 # Prerequisites
 
 # Load the dev container feature test library.
+# shellcheck source=/dev/null
 source dev-container-features-test-lib
 
 # Tests

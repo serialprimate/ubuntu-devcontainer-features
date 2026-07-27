@@ -10,11 +10,17 @@ min_release_age="${MINRELEASEAGE:-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
-error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+error() {
+    printf 'ERROR: %s\n' "$*" >&2
+    exit 1
+}
 
 # Check option compatibility.
-case "${browser}" in chromium|firefox|webkit) ;; *) error "BROWSER must be chromium, firefox, or webkit." ;; esac
-case "${min_release_age}" in ''|*[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;; esac
+case "${browser}" in chromium | firefox | webkit) ;; *) error "BROWSER must be chromium, firefox, or webkit." ;; esac
+case "${min_release_age}" in
+    '' | *[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;;
+    *) ;;
+esac
 
 # Prerequisites
 

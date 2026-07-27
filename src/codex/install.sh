@@ -9,11 +9,17 @@ min_release_age="${MINRELEASEAGE:-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
-error() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+error() {
+    printf 'ERROR: %s\n' "$*" >&2
+    exit 1
+}
 
 # Check option compatibility.
-[ -n "${version}" ] || error "VERSION must not be empty."
-case "${min_release_age}" in ''|*[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;; esac
+[[ -n "${version}" ]] || error "VERSION must not be empty."
+case "${min_release_age}" in
+    '' | *[!0-9]*) error "MINRELEASEAGE must be a non-negative integer." ;;
+    *) ;;
+esac
 
 # Prerequisites
 
