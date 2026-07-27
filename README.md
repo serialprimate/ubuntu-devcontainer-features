@@ -23,7 +23,7 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 
 ## Dev Container Features
 
-| Feature | Description |
+| Feature | Feature Description |
 | --- | --- |
 | `apt-packages` | Install default apt OS packages. |
 | `user` | Create a user with username, password, shell, groups, and sudo access. |
@@ -38,19 +38,29 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 
 Feature-specific options are declared in each feature's `devcontainer-feature.json`.
 
-Compose a `node` feature or base image before an npm-dependent local feature. Likewise, compose a `python` and/or `pipx` feature (e.g. `apt-python`) or base image before a pipx-dependent local feature. As a security feature and to support older versions of `pipx` (e.g. installed by APT in Ubuntu 26.04), the shared `pipx` virtual environment must have a minimum `pip` release of 26.1 to support the minimum release age option supported by local features. The `apt-python` feature will install the latest version of `pip` in the global shared `pipx` virtual environment.
+### Dev Container Feature Dependencies
+
+To remain flexible the features of this repository do not declare dependencies. For this reason, the user must compose a `node` feature or base image before an npm-dependent local feature. Likewise, the user must compose a `python` and/or `pipx` feature (e.g. `apt-python`) or base image before a pipx-dependent local feature.
+
+### Minimum Release Age
+
+The features of this repository that use either `npm` and `pipx` during the installation process have feature options for the user to specify a minimum release age or cooldown period for the package manager to use when installing packages. This is a security feature to avoid installing the latest release of a package that may have been recently published and not yet vetted as safe by the community.
+
+To implement this option for `pipx`, and specifically older versions of `pipx` (e.g. installed by APT in Ubuntu 26.04), the shared `pipx` virtual environment must have a minimum `pip` release of 26.1. The `apt-python` feature will install the latest version of `pip` in the global shared `pipx` virtual environment.
 
 ## References
 
-### Dev Container Features
+### Dev Container Features Specifications
 
 - [Dev Container Features specification](https://containers.dev/implementors/features/): Feature metadata, option resolution, versioning, and implementation requirements.
 - [Feature distribution specification](https://containers.dev/implementors/features-distribution/): OCI distribution and collection publishing requirements.
+
+### Dev Container CLI
+
 - [Dev Container CLI](https://github.com/devcontainers/cli): CLI used locally and in CI to package and test features.
 - [Dev Container CLI: Testing Dev Container Features](https://github.com/devcontainers/cli/blob/f683c29f64a20109b4453e5149807e390ff65133/docs/features/test.md): Testing features locally and in CI.
 
-### Publishing and CI
+### Continuous Integration
 
 - [Dev Container GitHub Action](https://github.com/devcontainers/action): GitHub Action used to validate, publish, and generate feature documentation.
-- [GitHub Container Registry documentation](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry): Package visibility and registry management for GHCR-published features.
 - [GitHub Actions permissions](https://docs.github.com/actions/security-for-github-actions/security-guides/automatic-token-authentication): Permissions needed by the release workflow to publish packages and commit generated documentation.
