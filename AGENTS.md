@@ -1,10 +1,10 @@
 # Instructions for Agents
 
 This repository is a collection of devcontainer features that can be used to build Ubuntu-based development containers.
-We will be targeting Ubuntu latest as the base image for all features, tests and this repository's devcontainer configuration.
+We will be targeting `ubuntu:latest` as the base image for all features, tests and this repository's devcontainer configuration.
 
-- Refer to the README.md for more information on the repository, its structure, and the features it contains.
-- Refer to CONVENTIONS.md for the conventions, patterns and practices used in this repository.
+- Refer to the `README.md` for more information on the repository, its structure, and the features it contains.
+- Refer to `CONVENTIONS.md` for the conventions, patterns and practices used in this repository.
 
 ## Currency of All Files
 
@@ -13,3 +13,14 @@ We will be targeting Ubuntu latest as the base image for all features, tests and
 ## Verification, Validation and Testing
 
 - Every response to a message or prompt should be completed with verification, validation and testing of the code, and a clear explanation of the changes made, the reasons for the changes, and any potential impact on other scripts or features in the repository.
+
+## Token Efficiency
+
+- Design tool calls to be as input token efficient as possible.
+- Use `rg` (`ripgrep`) instead of `grep` for searching files/streams.
+- Use `fdfind` (or `fd`) instead of `find` for finding files/directories.
+- Never dump raw long streams. Pipe to a temp file (> /tmp/...) or filter using tail, jq, yq, rg, sed, or awk before reading.
+
+## Error Reporting
+
+Surface errors/problems associated with skills, extensions, tools and instructions to the user.
