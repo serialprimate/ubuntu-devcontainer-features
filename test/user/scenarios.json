@@ -5,6 +5,14 @@
             "user": {}
         }
     },
+    "additional-groups": {
+        "image": "ubuntu:latest",
+        "features": {
+            "user": {
+                "groups": "root daemon"
+            }
+        }
+    },
     "password-sudo": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [

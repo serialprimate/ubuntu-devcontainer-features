@@ -7,7 +7,7 @@
         "pipxPackages": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of pipx global packages to install."
+            "description": "Space-separated list of pipx global packages to install."
         },
         "pipxCooldown": {
             "type": "string",

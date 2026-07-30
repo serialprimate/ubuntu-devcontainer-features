@@ -57,6 +57,7 @@
 ## Feature Declarations
 
 - Expose feature options through `devcontainer-feature.json` and consume them in `install.sh`.
+- Represent string list options as space-separated lists; preserve commas as part of individual values.
 - Keep feature options limited to behavior the Feature specification can implement.
 - Treat host mounts, user configuration, and similar host-side concerns as the responsibility of the consuming `devcontainer.json`.
 - Reserve `installsAfter` for portable, published-feature dependencies.

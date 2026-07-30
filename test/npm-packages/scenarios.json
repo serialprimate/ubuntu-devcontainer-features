@@ -40,7 +40,7 @@
                 "version": "lts"
             },
             "npm-packages": {
-                "npmPackages": "markdownlint-cli2,prettier"
+                "npmPackages": "markdownlint-cli2 prettier"
             }
         }
     }

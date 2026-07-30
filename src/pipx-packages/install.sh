@@ -7,14 +7,7 @@ set -euo pipefail
 pipx_cooldown="${PIPXCOOLDOWN-7}"
 package_list=()
 if [[ -n "${PIPXPACKAGES:-}" ]]; then
-    IFS=',' read -r -a requested_packages <<<"${PIPXPACKAGES}"
-    for package in "${requested_packages[@]}"; do
-        package="${package#"${package%%[![:space:]]*}"}"
-        package="${package%"${package##*[![:space:]]}"}"
-        if [[ -n "${package}" ]]; then
-            package_list+=("${package}")
-        fi
-    done
+    read -r -a package_list <<<"${PIPXPACKAGES}"
 fi
 
 # Logging functions.

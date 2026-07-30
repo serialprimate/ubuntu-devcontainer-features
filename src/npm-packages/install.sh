@@ -7,14 +7,7 @@ set -euo pipefail
 npx_min_release_age="${NPXMINRELEASEAGE-7}"
 package_list=()
 if [[ -n "${NPMPACKAGES:-}" ]]; then
-    IFS=',' read -r -a requested_packages <<<"${NPMPACKAGES}"
-    for package in "${requested_packages[@]}"; do
-        package="${package#"${package%%[![:space:]]*}"}"
-        package="${package%"${package##*[![:space:]]}"}"
-        if [[ -n "${package}" ]]; then
-            package_list+=("${package}")
-        fi
-    done
+    read -r -a package_list <<<"${NPMPACKAGES}"
 fi
 
 # Logging functions.

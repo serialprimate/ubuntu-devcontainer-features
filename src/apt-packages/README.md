@@ -15,7 +15,7 @@ Install default apt OS packages.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| aptPackages | Comma-separated list of default apt OS packages to install. | string | - |
+| aptPackages | Space-separated list of default apt OS packages to install. | string | - |
 
 
 

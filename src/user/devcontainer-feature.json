@@ -37,7 +37,7 @@
         "groups": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of groups to add the user to."
+            "description": "Space-separated list of groups to add the user to."
         }
     }
 }

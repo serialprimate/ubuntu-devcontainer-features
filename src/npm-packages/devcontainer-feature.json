@@ -7,7 +7,7 @@
         "npmPackages": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of global npm packages to install."
+            "description": "Space-separated list of global npm packages to install."
         },
         "npxMinReleaseAge": {
             "type": "string",
