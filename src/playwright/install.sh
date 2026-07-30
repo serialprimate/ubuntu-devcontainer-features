@@ -6,7 +6,7 @@ set -euo pipefail
 # Collect options.
 version="${VERSION:-latest}"
 browser="${BROWSER:-chromium}"
-min_release_age="${MINRELEASEAGE-7}"
+npx_min_release_age="${NPXMINRELEASEAGE-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -17,10 +17,6 @@ error() {
 
 # Check option compatibility.
 case "${browser}" in chromium | firefox | webkit) ;; *) error "BROWSER must be chromium, firefox, or webkit." ;; esac
-case "${min_release_age}" in
-    *[!0-9]*) error "MINRELEASEAGE must be empty or a non-negative integer." ;;
-    *) ;;
-esac
 
 # Prerequisites
 
@@ -37,8 +33,8 @@ require_command apt-get
 # Install packages.
 # 1. Playwright
 npm_install_args=(--global --ignore-scripts)
-if [[ -n "${min_release_age}" ]]; then
-    npm_install_args+=(--min-release-age="${min_release_age}")
+if [[ -n "${npx_min_release_age}" ]]; then
+    npm_install_args+=(--min-release-age="${npx_min_release_age}")
 fi
 
 export PLAYWRIGHT_BROWSERS_PATH=/ms-playwright

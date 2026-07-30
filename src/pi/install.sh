@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Collect options.
 version="${VERSION:-latest}"
-min_release_age="${MINRELEASEAGE-7}"
+npx_min_release_age="${NPXMINRELEASEAGE-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -16,10 +16,6 @@ error() {
 
 # Check option compatibility.
 [[ -n "${version}" ]] || error "VERSION must not be empty."
-case "${min_release_age}" in
-    *[!0-9]*) error "MINRELEASEAGE must be empty or a non-negative integer." ;;
-    *) ;;
-esac
 
 # Prerequisites
 
@@ -35,8 +31,8 @@ require_command npm
 # Install packages.
 # 1. Pi
 npm_install_args=(--global --ignore-scripts)
-if [[ -n "${min_release_age}" ]]; then
-    npm_install_args+=(--min-release-age="${min_release_age}")
+if [[ -n "${npx_min_release_age}" ]]; then
+    npm_install_args+=(--min-release-age="${npx_min_release_age}")
 fi
 
 log "Installing Pi ${version}."

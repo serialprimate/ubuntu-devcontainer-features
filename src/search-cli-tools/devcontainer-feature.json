@@ -24,10 +24,15 @@
             "default": true,
             "description": "Install the Tavily CLI."
         },
-        "minReleaseAge": {
+        "npxMinReleaseAge": {
             "type": "string",
             "default": "7",
-            "description": "Minimum npm and pipx release age in days. An empty string completely disables this feature."
+            "description": "Value passed to npm's --min-release-age option in days. An empty string omits the option."
+        },
+        "pipxCooldown": {
+            "type": "string",
+            "default": "7",
+            "description": "Value passed to pipx's --cooldown option in days. An empty string omits the option."
         }
     }
 }

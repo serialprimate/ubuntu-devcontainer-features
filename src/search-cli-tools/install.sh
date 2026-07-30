@@ -8,7 +8,8 @@ install_brave="${INSTALLBRAVE:-true}"
 install_context7="${INSTALLCONTEXT7:-true}"
 install_firecrawl="${INSTALLFIRECRAWL:-true}"
 install_tavily="${INSTALLTAVILY:-true}"
-min_release_age="${MINRELEASEAGE-7}"
+npx_min_release_age="${NPXMINRELEASEAGE-7}"
+pipx_cooldown="${PIPXCOOLDOWN-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -24,10 +25,6 @@ for option in "${install_brave}" "${install_context7}" "${install_firecrawl}" "$
         *) error "Boolean options must be true or false." ;;
     esac
 done
-case "${min_release_age}" in
-    *[!0-9]*) error "MINRELEASEAGE must be empty or a non-negative integer." ;;
-    *) ;;
-esac
 
 # Prerequisites
 
@@ -52,9 +49,11 @@ fi
 # Install packages.
 npm_install_args=(--global --ignore-scripts)
 pipx_install_args=(--global)
-if [[ -n "${min_release_age}" ]]; then
-    npm_install_args+=(--min-release-age="${min_release_age}")
-    pipx_install_args+=(--pip-args="--uploaded-prior-to=P${min_release_age}D")
+if [[ -n "${npx_min_release_age}" ]]; then
+    npm_install_args+=(--min-release-age="${npx_min_release_age}")
+fi
+if [[ -n "${pipx_cooldown}" ]]; then
+    pipx_install_args+=(--cooldown="${pipx_cooldown}")
 fi
 
 # 1. Brave CLI
