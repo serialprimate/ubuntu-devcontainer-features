@@ -7,7 +7,6 @@
         ],
         "features": {
             "apt-python": {
-                "version": "3.14",
                 "installPip": true,
                 "installPipx": true,
                 "installVenv": true
@@ -25,7 +24,6 @@
         ],
         "features": {
             "apt-python": {
-                "version": "3.14",
                 "installPip": true,
                 "installPipx": true,
                 "installVenv": true
@@ -43,7 +41,6 @@
         ],
         "features": {
             "apt-python": {
-                "version": "3.14",
                 "installPip": true,
                 "installPipx": true,
                 "installVenv": true

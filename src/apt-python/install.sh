@@ -4,7 +4,6 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-python_version="${VERSION:-3.14}"
 install_pip="${INSTALLPIP:-true}"
 install_pipx="${INSTALLPIPX:-true}"
 install_venv="${INSTALLVENV:-true}"
@@ -50,7 +49,7 @@ initialize_pipx_shared_environment() {
 }
 
 # Install packages.
-packages=("python${python_version}")
+packages=(python3)
 if [[ "${install_pip}" = "true" ]]; then
     packages+=(python3-pip)
 fi
@@ -58,11 +57,11 @@ if [[ "${install_pipx}" = "true" ]]; then
     packages+=(pipx)
 fi
 if [[ "${install_venv}" = "true" ]]; then
-    packages+=("python${python_version}-venv")
+    packages+=(python3-venv)
 fi
 
 export DEBIAN_FRONTEND=noninteractive
-log "Installing Python ${python_version}."
+log "Installing Python."
 install_apt_packages "${packages[@]}"
 
 if [[ "${install_pipx}" = "true" ]]; then

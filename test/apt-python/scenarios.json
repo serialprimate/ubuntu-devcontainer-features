@@ -3,7 +3,6 @@
         "image": "ubuntu:latest",
         "features": {
             "apt-python": {
-                "version": "3.14",
                 "installPip": true,
                 "installPipx": true,
                 "installVenv": true

@@ -15,7 +15,6 @@ Install default python and optional pip, pipx, and venv apt OS packages.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Python version to install. | string | 3.14 |
 | installPip | Install pip. | boolean | true |
 | installPipx | Install pipx. Requires venv to be installed. | boolean | true |
 | installVenv | Install venv. | boolean | true |

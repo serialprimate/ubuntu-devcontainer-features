@@ -4,14 +4,6 @@
     "version": "0.1.0-dev",
     "description": "Install default python and optional pip, pipx, and venv apt OS packages.",
     "options": {
-        "version": {
-            "type": "string",
-            "enum": [
-                "3.14"
-            ],
-            "default": "3.14",
-            "description": "Python version to install."
-        },
         "installPip": {
             "type": "boolean",
             "default": true,
