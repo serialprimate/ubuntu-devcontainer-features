@@ -16,7 +16,7 @@ Install global npm packages.
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | npmPackages | Comma-separated list of global npm packages to install. | string | - |
-| minReleaseAge | Minimum npm release age in days. An empty string completely disables this feature. | string | 7 |
+| npxMinReleaseAge | Value passed to npm's --min-release-age option in days. An empty string omits the option. | string | 7 |
 
 
 

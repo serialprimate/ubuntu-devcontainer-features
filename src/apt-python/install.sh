@@ -41,12 +41,6 @@ install_apt_packages() {
     apt-get clean
     rm -rf /var/lib/apt/lists/*
 }
-initialize_pipx_shared_environment() {
-    if [[ ! -x /opt/pipx/shared/bin/python ]]; then
-        python3 -m venv /opt/pipx/shared
-    fi
-    /opt/pipx/shared/bin/python -m pip install --upgrade pip
-}
 
 # Install packages.
 packages=(python3)
@@ -63,7 +57,3 @@ fi
 export DEBIAN_FRONTEND=noninteractive
 log "Installing Python."
 install_apt_packages "${packages[@]}"
-
-if [[ "${install_pipx}" = "true" ]]; then
-    initialize_pipx_shared_environment
-fi

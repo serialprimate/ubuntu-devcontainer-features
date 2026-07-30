@@ -4,7 +4,7 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-min_release_age="${MINRELEASEAGE-7}"
+npx_min_release_age="${NPXMINRELEASEAGE-7}"
 package_list=()
 if [[ -n "${NPMPACKAGES:-}" ]]; then
     IFS=',' read -r -a requested_packages <<<"${NPMPACKAGES}"
@@ -25,10 +25,7 @@ error() {
 }
 
 # Check option compatibility.
-case "${min_release_age}" in
-    *[!0-9]*) error "MINRELEASEAGE must be empty or a non-negative integer." ;;
-    *) ;;
-esac
+# No option compatibility checks are required.
 
 # Prerequisites
 
@@ -44,8 +41,8 @@ require_command npm
 # Install packages.
 if [[ ${#package_list[@]} -gt 0 ]]; then
     npm_install_args=(--global --ignore-scripts)
-    if [[ -n "${min_release_age}" ]]; then
-        npm_install_args+=(--min-release-age="${min_release_age}")
+    if [[ -n "${npx_min_release_age}" ]]; then
+        npm_install_args+=(--min-release-age="${npx_min_release_age}")
     fi
 
     log "Installing global npm packages."

@@ -9,10 +9,10 @@
             "default": "",
             "description": "Comma-separated list of pipx global packages to install."
         },
-        "minReleaseAge": {
+        "pipxCooldown": {
             "type": "string",
             "default": "7",
-            "description": "Minimum pipx release age in days. An empty string completely disables this feature."
+            "description": "Value passed to pipx's --cooldown option in days. An empty string omits the option."
         }
     }
 }

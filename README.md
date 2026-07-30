@@ -49,9 +49,9 @@ To remain flexible the features of this repository do not declare dependencies. 
 
 ### Minimum Release Age
 
-The features of this repository that use `npm` or `pipx` during installation provide a `minReleaseAge` option. It defaults to `"7"`, requiring package releases to be at least seven days old as a precaution against newly published packages that have not yet been vetted by the community. Any non-negative integer string sets the minimum age in days. Setting the option to the empty string `""` disables this feature by omitting npm's `--min-release-age` and/or pip's `--uploaded-prior-to` arguments respectively.
+Features that install npm packages provide an `npxMinReleaseAge` option whose value is passed directly to npm's `--min-release-age` option. Features that install pipx packages provide a `pipxCooldown` option whose value is passed directly to pipx's `--cooldown` option. Both default to `"7"`; an empty string omits the corresponding command option. Users are responsible for choosing values supported by the npm and pipx versions they provide.
 
-To enable the minimum release age feature with older versions of `pipx` (such as the version installed by APT in Ubuntu 26.04), the global shared `pipx` virtual environment must be upgraded to have `pip` 26.1 or newer to support the required arguments. When installing `pipx`, the `apt-python` feature installs the latest version of `pip` in the global shared `pipx` virtual environment to meet this requirement.
+The `apt-python` feature currently installs an older pipx version that does not support `--cooldown`. Set `pipxCooldown` to `""` when using a pipx-dependent feature with `apt-python`.
 
 ## References
 

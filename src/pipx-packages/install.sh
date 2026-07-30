@@ -4,7 +4,7 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-min_release_age="${MINRELEASEAGE-7}"
+pipx_cooldown="${PIPXCOOLDOWN-7}"
 package_list=()
 if [[ -n "${PIPXPACKAGES:-}" ]]; then
     IFS=',' read -r -a requested_packages <<<"${PIPXPACKAGES}"
@@ -25,10 +25,7 @@ error() {
 }
 
 # Check option compatibility.
-case "${min_release_age}" in
-    *[!0-9]*) error "MINRELEASEAGE must be empty or a non-negative integer." ;;
-    *) ;;
-esac
+# No option compatibility checks are required.
 
 # Prerequisites
 
@@ -44,8 +41,8 @@ require_command pipx
 # Install packages.
 if [[ ${#package_list[@]} -gt 0 ]]; then
     pipx_install_args=(--global)
-    if [[ -n "${min_release_age}" ]]; then
-        pipx_install_args+=(--pip-args="--uploaded-prior-to=P${min_release_age}D")
+    if [[ -n "${pipx_cooldown}" ]]; then
+        pipx_install_args+=(--cooldown="${pipx_cooldown}")
     fi
 
     log "Installing global pipx packages."

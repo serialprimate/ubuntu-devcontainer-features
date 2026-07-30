@@ -12,7 +12,8 @@
                 "installVenv": true
             },
             "pipx-packages": {
-                "pipxPackages": ""
+                "pipxPackages": "",
+                "pipxCooldown": ""
             }
         }
     },
@@ -29,7 +30,8 @@
                 "installVenv": true
             },
             "pipx-packages": {
-                "pipxPackages": "black"
+                "pipxPackages": "black",
+                "pipxCooldown": ""
             }
         }
     },
@@ -46,7 +48,8 @@
                 "installVenv": true
             },
             "pipx-packages": {
-                "pipxPackages": "black,ruff"
+                "pipxPackages": "black,ruff",
+                "pipxCooldown": ""
             }
         }
     }

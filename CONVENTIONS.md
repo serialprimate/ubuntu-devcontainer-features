@@ -12,7 +12,7 @@
 - Prefer small, focused helpers and keep logic readable rather than over-abstracting.
 - Do not use TRAP or defensively program for unlikely/rare conditions.
 - Perform explicit checks for option inputs, compatibility, prerequisites, outputs etc as required or appropriate for the specific type/class of script.
-- To mitigate the risk of consuming poisoned packages, `npm`, `pip`, `pipx` installations use their equivalent "minimum release age" options with a default value of seven days where this option is to be configurable.
+- To mitigate the risk of consuming poisoned packages, configurable `npm` and `pipx` installations default their respective `--min-release-age` and `--cooldown` options to seven days.
 - Use lowercase `snake_case` for shell variables.
 
 ### Bash Linting
@@ -43,7 +43,7 @@
 - `install_apt_packages` should perform one complete `apt` cycle: `apt-get update`, `apt-get install -y --no-install-recommends`, `apt-get clean`, and removal of `/var/lib/apt/lists/*`.
 - Fail early with a clear message when an optional capability requires a missing prerequisite.
 - Use `npm` global installs with `--global --ignore-scripts` and, when configured, `--min-release-age`.
-- Use `pip`’s `--uploaded-prior-to` argument for constrained `pipx` installs when configured.
+- Use pipx's `--cooldown` argument for constrained `pipx` installs when configured.
 
 ### Feature Test Scripts
 

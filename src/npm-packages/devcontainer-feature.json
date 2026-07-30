@@ -9,10 +9,10 @@
             "default": "",
             "description": "Comma-separated list of global npm packages to install."
         },
-        "minReleaseAge": {
+        "npxMinReleaseAge": {
             "type": "string",
             "default": "7",
-            "description": "Minimum npm release age in days. An empty string completely disables this feature."
+            "description": "Value passed to npm's --min-release-age option in days. An empty string omits the option."
         }
     }
 }
