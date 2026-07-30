@@ -15,7 +15,7 @@ Install pipx global packages.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| pipxPackages | Comma-separated list of pipx global packages to install. | string | - |
+| pipxPackages | Space-separated list of pipx global packages to install. | string | - |
 | pipxCooldown | Value passed to pipx's --cooldown option in days. An empty string omits the option. | string | 7 |
 
 ## Notes

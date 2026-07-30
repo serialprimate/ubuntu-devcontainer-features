@@ -19,7 +19,7 @@
         "image": "ubuntu:latest",
         "features": {
             "apt-packages": {
-                "aptPackages": "tree,curl"
+                "aptPackages": "tree curl"
             }
         }
     }

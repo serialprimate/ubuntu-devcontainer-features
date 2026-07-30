@@ -5,14 +5,9 @@ set -euo pipefail
 
 # Collect options.
 package_list=()
-IFS=',' read -r -a raw_packages <<<"${APTPACKAGES:-}"
-for package in "${raw_packages[@]}"; do
-    trimmed="${package#"${package%%[![:space:]]*}"}"
-    trimmed="${trimmed%"${trimmed##*[![:space:]]}"}"
-    if [[ -n "${trimmed}" ]]; then
-        package_list+=("${trimmed}")
-    fi
-done
+if [[ -n "${APTPACKAGES:-}" ]]; then
+    read -r -a package_list <<<"${APTPACKAGES}"
+fi
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }

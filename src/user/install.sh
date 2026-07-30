@@ -12,14 +12,7 @@ user_uid="${USERUID:-1000}"
 user_gid="${USERGID:-1000}"
 groups=()
 if [[ -n "${GROUPS:-}" ]]; then
-    IFS=',' read -r -a requested_groups <<<"${GROUPS}"
-    for group in "${requested_groups[@]}"; do
-        group="${group#"${group%%[![:space:]]*}"}"
-        group="${group%"${group##*[![:space:]]}"}"
-        if [[ -n "${group}" ]]; then
-            groups+=("${group}")
-        fi
-    done
+    read -r -a groups <<<"${GROUPS}"
 fi
 
 # Logging functions.

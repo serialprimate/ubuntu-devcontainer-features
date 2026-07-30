@@ -7,7 +7,7 @@
         "aptPackages": {
             "type": "string",
             "default": "",
-            "description": "Comma-separated list of default apt OS packages to install."
+            "description": "Space-separated list of default apt OS packages to install."
         }
     }
 }

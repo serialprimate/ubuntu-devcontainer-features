@@ -21,7 +21,7 @@ Create a user with username, password, shell, and sudo access.
 | shell | Path to the user's login shell. | string | /bin/bash |
 | userUid | Numeric UID for the user. | string | 1000 |
 | userGid | Numeric GID for the user. | string | 1000 |
-| groups | Comma-separated list of groups to add the user to. | string | - |
+| groups | Space-separated list of groups to add the user to. | string | - |
 
 ## Notes
 

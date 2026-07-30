@@ -48,7 +48,7 @@
                 "installVenv": true
             },
             "pipx-packages": {
-                "pipxPackages": "black,ruff",
+                "pipxPackages": "black>=0,<1000 ruff",
                 "pipxCooldown": ""
             }
         }
