@@ -4,7 +4,7 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-version="${VERSION:-latest}"
+playwright_version="${PLAYWRIGHTVERSION:-latest}"
 browser="${BROWSER:-chromium}"
 npm_min_release_age="${NPMMINRELEASEAGE-7}"
 
@@ -38,8 +38,8 @@ if [[ -n "${npm_min_release_age}" ]]; then
 fi
 
 export PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
-log "Installing Playwright ${version}."
-npm install "${npm_install_args[@]}" "playwright@${version}"
+log "Installing Playwright ${playwright_version}."
+npm install "${npm_install_args[@]}" "playwright@${playwright_version}"
 
 # 2. Browser dependencies
 export DEBIAN_FRONTEND=noninteractive

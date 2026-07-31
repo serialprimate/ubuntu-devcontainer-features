@@ -15,7 +15,7 @@ Install the Pi coding agent CLI as a global package.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of the Pi coding agent global package to install. | string | latest |
+| piVersion | Version of the Pi coding agent global package to install. | string | latest |
 | npmMinReleaseAge | Value passed to npm's --min-release-age option in days. An empty string omits the option. | string | 7 |
 
 

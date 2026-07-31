@@ -4,7 +4,7 @@
     "version": "0.1.0-dev",
     "description": "Install the Codex coding agent CLI as a global package.",
     "options": {
-        "version": {
+        "codexVersion": {
             "type": "string",
             "default": "latest",
             "description": "Version of the Codex coding agent global package to install."

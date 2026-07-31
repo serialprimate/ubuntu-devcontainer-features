@@ -4,7 +4,7 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-version="${VERSION:-lts}"
+node_version="${NODEVERSION:-lts}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -14,7 +14,7 @@ error() {
 }
 
 # Check option compatibility.
-case "${version}" in 20 | 24 | 26) node_version="${version}" ;; lts) node_version=24 ;; latest) node_version=26 ;; *) error "VERSION must be 20, 24, 26, lts, or latest." ;; esac
+case "${node_version}" in 20 | 24 | 26) ;; lts) node_version=24 ;; latest) node_version=26 ;; *) error "NODEVERSION must be 20, 24, 26, lts, or latest." ;; esac
 
 # Prerequisites
 

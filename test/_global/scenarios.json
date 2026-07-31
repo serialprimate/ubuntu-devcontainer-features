@@ -20,7 +20,7 @@
                 "installVenv": true
             },
             "node": {
-                "version": "lts"
+                "nodeVersion": "lts"
             },
             "npm-packages": {
                 "npmPackages": "markdownlint-cli2"
@@ -36,10 +36,10 @@
                 "pipxCooldown": ""
             },
             "codex": {
-                "version": "latest"
+                "codexVersion": "latest"
             },
             "pi": {
-                "version": "latest"
+                "piVersion": "latest"
             },
             "playwright": {
                 "browser": "chromium"

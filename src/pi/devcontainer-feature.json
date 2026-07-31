@@ -4,7 +4,7 @@
     "version": "0.1.0-dev",
     "description": "Install the Pi coding agent CLI as a global package.",
     "options": {
-        "version": {
+        "piVersion": {
             "type": "string",
             "default": "latest",
             "description": "Version of the Pi coding agent global package to install."

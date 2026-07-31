@@ -7,10 +7,10 @@
         ],
         "features": {
             "node": {
-                "version": "lts"
+                "nodeVersion": "lts"
             },
             "pi": {
-                "version": "latest"
+                "piVersion": "latest"
             }
         }
     }

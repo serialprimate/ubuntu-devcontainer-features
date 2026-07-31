@@ -7,7 +7,7 @@
         ],
         "features": {
             "node": {
-                "version": "lts"
+                "nodeVersion": "lts"
             },
             "playwright": {
                 "browser": "chromium"

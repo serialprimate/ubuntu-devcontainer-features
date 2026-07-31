@@ -7,7 +7,7 @@
         "PLAYWRIGHT_BROWSERS_PATH": "/ms-playwright"
     },
     "options": {
-        "version": {
+        "playwrightVersion": {
             "type": "string",
             "enum": [
                 "1.61.1",

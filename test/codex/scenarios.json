@@ -7,10 +7,10 @@
         ],
         "features": {
             "node": {
-                "version": "lts"
+                "nodeVersion": "lts"
             },
             "codex": {
-                "version": "latest"
+                "codexVersion": "latest"
             }
         }
     }
