@@ -3,9 +3,9 @@
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",
+            "./apt-packages",
             "./node",
             "./npm-packages",
-            "./apt-packages",
             "./search-cli-tools",
             "./codex",
             "./pi",
@@ -19,14 +19,14 @@
                 "installPipx": true,
                 "installVenv": true
             },
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg tree"
+            },
             "node": {
                 "nodeVersion": "lts"
             },
             "npm-packages": {
                 "npmPackages": "markdownlint-cli2"
-            },
-            "apt-packages": {
-                "aptPackages": "tree"
             },
             "search-cli-tools": {
                 "installBrave": true,
