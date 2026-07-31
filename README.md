@@ -49,7 +49,7 @@ To remain flexible the features of this repository do not declare dependencies. 
 
 ### Minimum Release Age
 
-Features that install npm packages provide an `npxMinReleaseAge` option whose value is passed directly to npm's `--min-release-age` option. Features that install pipx packages provide a `pipxCooldown` option whose value is passed directly to pipx's `--cooldown` option. Both default to `"7"`; an empty string omits the corresponding command option. Users are responsible for choosing values supported by the npm and pipx versions they provide.
+Features that install npm packages provide an `npmMinReleaseAge` option whose value is passed directly to npm's `--min-release-age` option. Features that install pipx packages provide a `pipxCooldown` option whose value is passed directly to pipx's `--cooldown` option. Both default to `"7"`; an empty string omits the corresponding command option. Users are responsible for choosing values supported by the npm and pipx versions they provide.
 
 The `apt-python` feature currently installs an older pipx version that does not support `--cooldown`. Set `pipxCooldown` to `""` when using a pipx-dependent feature with `apt-python`.
 

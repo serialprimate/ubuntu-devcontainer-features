@@ -9,7 +9,7 @@
             "default": "latest",
             "description": "Version of the Pi coding agent global package to install."
         },
-        "npxMinReleaseAge": {
+        "npmMinReleaseAge": {
             "type": "string",
             "default": "7",
             "description": "Value passed to npm's --min-release-age option in days. An empty string omits the option."

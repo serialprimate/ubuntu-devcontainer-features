@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Collect options.
 version="${VERSION:-latest}"
-npx_min_release_age="${NPXMINRELEASEAGE-7}"
+npm_min_release_age="${NPMMINRELEASEAGE-7}"
 
 # Logging functions.
 log() { printf '%s\n' "$*"; }
@@ -31,8 +31,8 @@ require_command npm
 # Install packages.
 # 1. Codex
 npm_install_args=(--global --ignore-scripts)
-if [[ -n "${npx_min_release_age}" ]]; then
-    npm_install_args+=(--min-release-age="${npx_min_release_age}")
+if [[ -n "${npm_min_release_age}" ]]; then
+    npm_install_args+=(--min-release-age="${npm_min_release_age}")
 fi
 
 log "Installing Codex ${version}."

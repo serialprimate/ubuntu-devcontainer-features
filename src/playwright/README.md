@@ -17,7 +17,7 @@ Install the Playwright runtime and browser dependency.
 |-----|-----|-----|-----|
 | version | Version of the Playwright package to install. | string | latest |
 | browser | Browser to install for Playwright. | string | chromium |
-| npxMinReleaseAge | Value passed to npm's --min-release-age option in days. An empty string omits the option. | string | 7 |
+| npmMinReleaseAge | Value passed to npm's --min-release-age option in days. An empty string omits the option. | string | 7 |
 
 
 

@@ -4,7 +4,7 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-npx_min_release_age="${NPXMINRELEASEAGE-7}"
+npm_min_release_age="${NPMMINRELEASEAGE-7}"
 package_list=()
 if [[ -n "${NPMPACKAGES:-}" ]]; then
     read -r -a package_list <<<"${NPMPACKAGES}"
@@ -34,8 +34,8 @@ require_command npm
 # Install packages.
 if [[ ${#package_list[@]} -gt 0 ]]; then
     npm_install_args=(--global --ignore-scripts)
-    if [[ -n "${npx_min_release_age}" ]]; then
-        npm_install_args+=(--min-release-age="${npx_min_release_age}")
+    if [[ -n "${npm_min_release_age}" ]]; then
+        npm_install_args+=(--min-release-age="${npm_min_release_age}")
     fi
 
     log "Installing global npm packages."
