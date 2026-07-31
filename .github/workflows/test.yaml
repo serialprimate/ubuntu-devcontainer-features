@@ -12,13 +12,14 @@ jobs:
     strategy:
       matrix:
         include:
-          # Feature depends on pip version 26.1 or higher.
+          # Default feature dependencies not met.
           # - feature: search-cli-tools
           #   baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: codex
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
-          - feature: node
-            baseImage: ubuntu:latest
+          # Default feature dependencies not met.
+          # - feature: node
+          #   baseImage: ubuntu:latest
           - feature: npm-packages
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: apt-packages
@@ -29,7 +30,7 @@ jobs:
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: apt-python
             baseImage: ubuntu:latest
-          # Feature depends on pip version 26.1 or higher.
+          # Default feature dependencies not met.
           # - feature: pipx-packages
           #   baseImage: mcr.microsoft.com/devcontainers/python:3.14
     steps:

@@ -1,7 +1,14 @@
 {
     "node-24": {
         "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-packages",
+            "./node"
+        ],
         "features": {
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg"
+            },
             "node": {
                 "nodeVersion": "24"
             }
