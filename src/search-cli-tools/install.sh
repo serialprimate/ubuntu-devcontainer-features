@@ -8,7 +8,7 @@ install_brave="${INSTALLBRAVE:-true}"
 install_context7="${INSTALLCONTEXT7:-true}"
 install_firecrawl="${INSTALLFIRECRAWL:-true}"
 install_tavily="${INSTALLTAVILY:-true}"
-npx_min_release_age="${NPXMINRELEASEAGE-7}"
+npm_min_release_age="${NPMMINRELEASEAGE-7}"
 pipx_cooldown="${PIPXCOOLDOWN-7}"
 
 # Logging functions.
@@ -49,8 +49,8 @@ fi
 # Install packages.
 npm_install_args=(--global --ignore-scripts)
 pipx_install_args=(--global)
-if [[ -n "${npx_min_release_age}" ]]; then
-    npm_install_args+=(--min-release-age="${npx_min_release_age}")
+if [[ -n "${npm_min_release_age}" ]]; then
+    npm_install_args+=(--min-release-age="${npm_min_release_age}")
 fi
 if [[ -n "${pipx_cooldown}" ]]; then
     pipx_install_args+=(--cooldown="${pipx_cooldown}")
