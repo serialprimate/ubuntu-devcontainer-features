@@ -3,7 +3,7 @@
         "image": "ubuntu:latest",
         "features": {
             "node": {
-                "version": "24"
+                "nodeVersion": "24"
             }
         }
     }

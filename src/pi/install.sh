@@ -4,7 +4,7 @@ set -euo pipefail
 # Inputs
 
 # Collect options.
-version="${VERSION:-latest}"
+pi_version="${PIVERSION:-latest}"
 npm_min_release_age="${NPMMINRELEASEAGE-7}"
 
 # Logging functions.
@@ -15,7 +15,7 @@ error() {
 }
 
 # Check option compatibility.
-[[ -n "${version}" ]] || error "VERSION must not be empty."
+[[ -n "${pi_version}" ]] || error "PIVERSION must not be empty."
 
 # Prerequisites
 
@@ -35,5 +35,5 @@ if [[ -n "${npm_min_release_age}" ]]; then
     npm_install_args+=(--min-release-age="${npm_min_release_age}")
 fi
 
-log "Installing Pi ${version}."
-npm install "${npm_install_args[@]}" "@earendil-works/pi-coding-agent@${version}"
+log "Installing Pi ${pi_version}."
+npm install "${npm_install_args[@]}" "@earendil-works/pi-coding-agent@${pi_version}"

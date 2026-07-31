@@ -15,7 +15,7 @@ Install Node.js apt packages from NodeSource.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Node.js version to install. | string | lts |
+| nodeVersion | Node.js version to install. | string | lts |
 
 
 
