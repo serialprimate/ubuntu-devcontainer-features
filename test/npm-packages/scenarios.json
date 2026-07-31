@@ -2,10 +2,14 @@
     "0-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
+            "./apt-packages",
             "./node",
             "./npm-packages"
         ],
         "features": {
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg"
+            },
             "node": {
                 "nodeVersion": "lts"
             },
@@ -17,10 +21,14 @@
     "1-package": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
+            "./apt-packages",
             "./node",
             "./npm-packages"
         ],
         "features": {
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg"
+            },
             "node": {
                 "nodeVersion": "lts"
             },
@@ -32,10 +40,14 @@
     "2-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
+            "./apt-packages",
             "./node",
             "./npm-packages"
         ],
         "features": {
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg"
+            },
             "node": {
                 "nodeVersion": "lts"
             },

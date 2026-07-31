@@ -2,10 +2,14 @@
     "chromium": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
+            "./apt-packages",
             "./node",
             "./playwright"
         ],
         "features": {
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg"
+            },
             "node": {
                 "nodeVersion": "lts"
             },

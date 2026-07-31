@@ -2,10 +2,14 @@
     "context7": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
+            "./apt-packages",
             "./node",
             "./search-cli-tools"
         ],
         "features": {
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg"
+            },
             "node": {
                 "nodeVersion": "lts"
             },
@@ -21,6 +25,7 @@
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",
+            "./apt-packages",
             "./node",
             "./search-cli-tools"
         ],
@@ -29,6 +34,9 @@
                 "installPip": true,
                 "installPipx": true,
                 "installVenv": true
+            },
+            "apt-packages": {
+                "aptPackages": "ca-certificates curl gnupg"
             },
             "node": {
                 "nodeVersion": "lts"
