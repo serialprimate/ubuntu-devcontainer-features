@@ -52,5 +52,49 @@
                 "pipxCooldown": ""
             }
         }
+    },
+    "pipx-packages_pipx-feature-without-cooldown": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-python",
+            "./pipx",
+            "./pipx-packages"
+        ],
+        "features": {
+            "apt-python": {
+                "installPip": true,
+                "installPipx": false,
+                "installVenv": true
+            },
+            "pipx": {
+                "pipUploadedPriorTo": ""
+            },
+            "pipx-packages": {
+                "pipxPackages": "black",
+                "pipxCooldown": ""
+            }
+        }
+    },
+    "pipx-packages_pipx-feature-with-cooldown": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-python",
+            "./pipx",
+            "./pipx-packages"
+        ],
+        "features": {
+            "apt-python": {
+                "installPip": true,
+                "installPipx": false,
+                "installVenv": true
+            },
+            "pipx": {
+                "pipUploadedPriorTo": ""
+            },
+            "pipx-packages": {
+                "pipxPackages": "black",
+                "pipxCooldown": "7"
+            }
+        }
     }
 }
