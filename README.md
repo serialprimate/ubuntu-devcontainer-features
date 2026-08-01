@@ -35,6 +35,7 @@ Published features are addressed as `ghcr.io/serialprimate/ubuntu-devcontainer-f
 | `node` | Install Node.js apt packages from NodeSource. |
 | `npm-packages` | Install global npm packages. |
 | `apt-python` | Install default python and optional pip, pipx, and venv apt OS packages. |
+| `pipx` | Install pipx. |
 | `pipx-packages` | Install pipx global packages. |
 | `search-cli-tools` | Install developer search CLI tools. |
 | `codex` | Install the Codex coding agent CLI as a global package. |
@@ -45,13 +46,13 @@ Feature-specific options are declared in each feature's `devcontainer-feature.js
 
 ### Dev Container Feature Dependencies
 
-To remain flexible the features of this repository do not declare dependencies. For this reason, the user must compose a `node` feature or base image before an npm-dependent local feature. Likewise, the user must compose a `python` and/or `pipx` feature (e.g. `apt-python`) or base image before a pipx-dependent local feature.
+To remain flexible the features of this repository do not declare dependencies. For this reason, the user must compose a `node` feature or base image before an npm-dependent local feature. Likewise, the user must compose a Python feature or base image before the `pipx` feature, and a pipx feature (e.g. `pipx`) or base image before a pipx-dependent local feature.
 
 ### Minimum Release Age
 
-Features that install npm packages provide an `npmMinReleaseAge` option whose value is passed directly to npm's `--min-release-age` option. Features that install pipx packages provide a `pipxCooldown` option whose value is passed directly to pipx's `--cooldown` option. Both default to `"7"`; an empty string omits the corresponding command option. Users are responsible for choosing values supported by the npm and pipx versions they provide.
+Features that install npm packages provide an `npmMinReleaseAge` option whose value is passed directly to npm's `--min-release-age` option. Features that install pipx packages provide a `pipxCooldown` option whose value is passed directly to pipx's `--cooldown` option. Both default to `"7"`; an empty string omits the corresponding command option. The `pipx` feature similarly defaults `pipUploadedPriorTo` to `"P7D"` and passes it to pip's `--uploaded-prior-to` option. Users are responsible for choosing values supported by the tools they provide.
 
-The `apt-python` feature currently installs an older pipx version that does not support `--cooldown`. Set `pipxCooldown` to `""` when using a pipx-dependent feature with `apt-python`.
+The `apt-python` feature currently installs an older pipx version that does not support `--cooldown`. Set `pipxCooldown` to `""` when using a pipx-dependent feature with that APT-provided pipx. Alternatively, disable `apt-python`'s pipx installation and compose the `pipx` feature.
 
 ## References
 

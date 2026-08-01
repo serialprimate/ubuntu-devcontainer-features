@@ -1,0 +1,23 @@
+{
+    "name": "pipx",
+    "id": "pipx",
+    "version": "0.1.0-dev",
+    "description": "Install pipx.",
+    "options": {
+        "pipxVersion": {
+            "type": "string",
+            "default": "",
+            "description": "Python version specifier appended to pipx (for example, ==1.8.0 or >=1,<2)."
+        },
+        "pipUploadedPriorTo": {
+            "type": "string",
+            "default": "P7D",
+            "description": "Value passed to pip's --uploaded-prior-to option. An empty string omits the option."
+        },
+        "venvInstallPipUpgrade": {
+            "type": "boolean",
+            "default": false,
+            "description": "Upgrade pip in the virtual environment before installing pipx."
+        }
+    }
+}

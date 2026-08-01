@@ -1,0 +1,37 @@
+{
+    "default": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-python",
+            "./pipx"
+        ],
+        "features": {
+            "apt-python": {
+                "installPip": true,
+                "installPipx": false,
+                "installVenv": true
+            },
+            "pipx": {
+                "pipUploadedPriorTo": ""
+            }
+        }
+    },
+    "upgraded-pip-with-upload-filter": {
+        "image": "ubuntu:latest",
+        "overrideFeatureInstallOrder": [
+            "./apt-python",
+            "./pipx"
+        ],
+        "features": {
+            "apt-python": {
+                "installPip": true,
+                "installPipx": false,
+                "installVenv": true
+            },
+            "pipx": {
+                "pipxVersion": ">=1,<1000",
+                "venvInstallPipUpgrade": true
+            }
+        }
+    }
+}
