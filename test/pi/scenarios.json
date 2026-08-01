@@ -1,5 +1,5 @@
 {
-    "pi": {
+    "pi_default": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",

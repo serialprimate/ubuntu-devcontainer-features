@@ -1,5 +1,5 @@
 {
-    "apt-python": {
+    "apt-python_default": {
         "image": "ubuntu:latest",
         "features": {
             "apt-python": {

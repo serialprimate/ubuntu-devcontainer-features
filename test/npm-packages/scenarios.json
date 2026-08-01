@@ -1,5 +1,5 @@
 {
-    "0-packages": {
+    "npm-packages_0-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",
@@ -18,7 +18,7 @@
             }
         }
     },
-    "1-package": {
+    "npm-packages_1-package": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",
@@ -37,7 +37,7 @@
             }
         }
     },
-    "2-packages": {
+    "npm-packages_2-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",

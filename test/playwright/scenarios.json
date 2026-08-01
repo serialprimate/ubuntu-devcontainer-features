@@ -1,5 +1,5 @@
 {
-    "chromium": {
+    "playwright_chromium": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",

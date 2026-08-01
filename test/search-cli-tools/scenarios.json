@@ -1,5 +1,5 @@
 {
-    "context7": {
+    "search-cli-tools_context7": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",
@@ -21,7 +21,7 @@
             }
         }
     },
-    "all-tools": {
+    "search-cli-tools_all-tools": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",

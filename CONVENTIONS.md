@@ -64,6 +64,7 @@
 
 ## Feature Test Scenarios
 
+- Name each scenario and its associated test script `<feature-id>_<terse-desc>`, with a lowercase kebab-case description. For example, the `node` feature's version 24 scenario and script are `node_version-24` and `node_version-24.sh`.
 - Use `ubuntu:latest` for scenario and integration coverage.
 - When a scenario depends on `Node.js`, compose the local `node` feature explicitly in the test setup.
 - When a scenario depends on `pipx`, compose the local `apt-python` feature and enable the `installPipx` option explicitly in the test setup.
