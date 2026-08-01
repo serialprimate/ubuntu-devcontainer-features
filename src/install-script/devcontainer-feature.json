@@ -1,0 +1,23 @@
+{
+    "name": "Install Script",
+    "id": "install-script",
+    "version": "0.1.0-dev",
+    "description": "Fetch and execute an install script from a URL.",
+    "options": {
+        "scriptURL": {
+            "type": "string",
+            "default": "",
+            "description": "URL of the Bash-compatible install script to execute. Must not be empty."
+        },
+        "scriptArgs": {
+            "type": "string",
+            "default": "",
+            "description": "Dynamically evaluated, space-separated Bash word list of arguments passed to the install script."
+        },
+        "envVars": {
+            "type": "string",
+            "default": "",
+            "description": "Dynamically evaluated, space-separated Bash word list of NAME=VALUE environment variable assignments for the install script."
+        }
+    }
+}
