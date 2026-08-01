@@ -72,11 +72,11 @@
 
 ## Feature Testing
 
-- Use `./scripts/test.sh` to test feature changes and the `_global` integration test. This script is a token-efficient wrapper for running common `devcontainer features test ...` commands because it captures detailed output in a log file and just prints the test report.
+- Use `./scripts/test.sh` to test feature changes and the `_global` integration test. This script is a token-efficient wrapper for running common `devcontainer features test ...` commands. It captures detailed output in a temporary log file and prints the test report.
 - Test selected changed features with `./scripts/test.sh <feature> [feature ...]`.
 - Test only the `_global` integration scenarios with `./scripts/test.sh --global`.
 - Test all feature and `_global` scenarios with `./scripts/test.sh`.
-- Run the relevant feature tests and the `_global` integration test before completing changes that can affect integration behavior. Report the summarised results and detailed log path printed by the script.
+- Run the relevant feature tests and the `_global` integration test before completing changes that can affect integration behavior. Report the summarised results.
 
 ## Documentation
 
@@ -89,3 +89,11 @@
 - Do not lint the generated feature `README.md` files.
 - Use `markdownlint-cli2 --config .markdownlint-cli2.jsonc` to lint markdown files.
 - Use `markdownlint-cli2 --config .markdownlint-cli2.jsonc "**/*.md" "#src/*/README.md"` to lint all markdown files except for the generated feature `README.md` files.
+
+## Temporary Files
+
+- Write temporary files to `/tmp/<repo-name>/` and remove them when no longer needed.
+
+## Docker Resources
+
+- Remove outdated/superceded Docker resources (images, containers, volumes, networks, etc) when no longer needed.
