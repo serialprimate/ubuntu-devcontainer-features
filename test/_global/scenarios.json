@@ -5,6 +5,7 @@
             "./apt-python",
             "./pipx",
             "./apt-packages",
+            "./install-script",
             "./node",
             "./npm-packages",
             "./search-cli-tools",
@@ -25,6 +26,11 @@
             },
             "apt-packages": {
                 "aptPackages": "ca-certificates curl gnupg tree"
+            },
+            "install-script": {
+                "scriptURL": "https://httpbingo.org/base64/IyEvdXNyL2Jpbi9lbnYgYmFzaApzZXQgLWV1byBwaXBlZmFpbApwcmludGYgJyVzXG4nICIkQCIgPiAvdG1wL2luc3RhbGwtc2NyaXB0LWZlYXR1cmUtYXJncwpwcmludGYgJyVzXG4nICIkR1JFRVRJTkciICIkRFlOQU1JQyIgIiRMSVRFUkFMIiAiJEVNUFRZIiA+IC90bXAvaW5zdGFsbC1zY3JpcHQtZmVhdHVyZS1lbnYK",
+                "scriptArgs": "--label \\\"two words\\\" --expanded \\\"\\${HOME##*/}\\\" --literal '\\$HOME' --escaped escaped\\ value --empty ''",
+                "envVars": "GREETING='hello world' DYNAMIC=\\\"\\${HOME##*/}\\\" LITERAL='\\$HOME' EMPTY="
             },
             "node": {
                 "nodeVersion": "lts"

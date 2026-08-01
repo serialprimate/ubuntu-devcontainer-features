@@ -24,6 +24,9 @@ jobs:
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: apt-packages
             baseImage: ubuntu:latest
+          # Default feature dependencies not met.
+          # - feature: install-script
+          #   baseImage: ubuntu:latest
           - feature: pi
             baseImage: mcr.microsoft.com/devcontainers/javascript-node:24
           - feature: playwright
@@ -55,6 +58,7 @@ jobs:
           - node
           - npm-packages
           - apt-packages
+          - install-script
           - pi
           - playwright
           - apt-python

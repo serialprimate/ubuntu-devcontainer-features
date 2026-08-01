@@ -20,6 +20,7 @@ source dev-container-features-test-lib
 check "Node.js 24 is installed" bash -c 'node --version | grep -E "^v24\."'
 check "markdownlint-cli2 is installed" markdownlint-cli2 --version
 check "Tree is installed" tree --version
+check "Install script feature completed" test -f /tmp/install-script-feature-args
 check "Brave CLI is installed" bx --help
 check "Context7 CLI is installed" ctx7 --help
 check "Firecrawl CLI is installed" firecrawl --help
@@ -36,5 +37,8 @@ check "Development user is installed" id dev
 check "Development user has UID 1000" bash -c '[[ "$(id -u dev)" == "1000" ]]'
 # shellcheck disable=SC2016 # Expand expressions in the child shell.
 check "Development user has GID 1000" bash -c '[[ "$(id -g dev)" == "1000" ]]'
+
+# Remove files created by the downloaded install-script test fixture.
+rm -f /tmp/install-script-feature-args /tmp/install-script-feature-env
 
 reportResults
