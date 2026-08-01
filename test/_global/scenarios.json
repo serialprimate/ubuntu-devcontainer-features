@@ -3,6 +3,7 @@
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",
+            "./pipx",
             "./apt-packages",
             "./node",
             "./npm-packages",
@@ -16,8 +17,11 @@
         "features": {
             "apt-python": {
                 "installPip": true,
-                "installPipx": true,
+                "installPipx": false,
                 "installVenv": true
+            },
+            "pipx": {
+                "pipUploadedPriorTo": ""
             },
             "apt-packages": {
                 "aptPackages": "ca-certificates curl gnupg tree"

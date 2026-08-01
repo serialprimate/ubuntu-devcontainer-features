@@ -31,6 +31,9 @@ jobs:
           - feature: apt-python
             baseImage: ubuntu:latest
           # Default feature dependencies not met.
+          # - feature: pipx
+          #   baseImage: mcr.microsoft.com/devcontainers/python:3.14
+          # Default feature dependencies not met.
           # - feature: pipx-packages
           #   baseImage: mcr.microsoft.com/devcontainers/python:3.14
     steps:
@@ -55,6 +58,7 @@ jobs:
           - pi
           - playwright
           - apt-python
+          - pipx
           - pipx-packages
     steps:
       - uses: actions/checkout@v7
