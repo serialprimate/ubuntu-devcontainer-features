@@ -2,42 +2,70 @@
 set -euo pipefail
 
 usage() {
-    echo "Usage: $0 [--global | feature ...]"
+    echo "Usage: $0 [--log-file filename] [--global | feature ...]"
     echo "Examples:"
     echo "  $0"
     echo "  $0 --global"
     echo "  $0 node npm-packages"
+    echo "  $0 --log-file /tmp/feature-tests.log node"
 }
-
-# Check for help argument
-if [[ $# -gt 0 ]] && [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    usage
-    exit 0
-fi
 
 # Parse command line arguments
 global_scenarios_only=false
-if [[ $# -eq 1 && "$1" == "--global" ]]; then
-    global_scenarios_only=true
-    features=()
-elif [[ " $* " == *" --global "* ]]; then
-    echo "Error: --global must be used on its own." >&2
+log_file=""
+features=()
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -h | --help)
+            usage
+            exit 0
+            ;;
+        --global)
+            global_scenarios_only=true
+            shift
+            ;;
+        --log-file)
+            if [[ $# -lt 2 || -z "$2" ]]; then
+                echo "Error: --log-file requires a filename." >&2
+                usage >&2
+                exit 1
+            fi
+            log_file=$2
+            shift 2
+            ;;
+        *)
+            features+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if [[ "${global_scenarios_only}" == "true" && ${#features[@]} -gt 0 ]]; then
+    echo "Error: --global cannot be used with feature names." >&2
     usage >&2
     exit 1
-else
-    features=("$@")
 fi
 
-# Generate a log filename
-log_file=/tmp/devcontainer-features-test_$(date +%Y%m%d_%H%M%S).log
+# Generate the default log filename from the repository directory name
+if [[ -z "${log_file}" ]]; then
+    repository_root=$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)
+    project_name=$(basename "${repository_root}")
+    log_file=/tmp/${project_name}/devcontainer-features-test_$(date +%Y%m%d_%H%M%S).log
+fi
+
+# Create the log directory when needed
+mkdir -p "$(dirname "${log_file}")"
+
+# Print the log filename
+echo "Test execution logs will be written to \"${log_file}\"."
 
 # Print which tests are being run
 if [[ "${global_scenarios_only}" == "true" ]]; then
-    echo "Running devcontainer features test scenarios for the \"_global\" test ..."
+    echo "Running devcontainer features test scenarios for the \"_global\" test."
 elif [[ ${#features[@]} -eq 0 ]]; then
-    echo "Running devcontainer features test scenarios for all features and the \"_global\" test ..."
+    echo "Running devcontainer features test scenarios for all features and the \"_global\" test."
 else
-    echo "Running devcontainer features test scenarios for selected features: ${features[*]} ..."
+    echo "Running devcontainer features test scenarios for selected features: ${features[*]}."
 fi
 
 echo
@@ -52,25 +80,26 @@ else
     fi
 fi
 
+# Print the command to execute
+echo "Executing: devcontainer features test ${args[*]}"
+
+echo
+
 # Execute the devcontainer features test command
 devcontainer features test "${args[@]}" >"${log_file}" 2>&1
 
 # Print the test report section from the log file
 sed -n '/TEST REPORT/,$p' "${log_file}"
 
-echo
-
 # Exit status
 exit_status=0
 
 # Check for errors and/or warnings in the log file
 if grep -qE "^(❌|⚠️)" "${log_file}"; then
+    echo
     echo "Test failures/warnings were detected."
     exit_status=1
 fi
-
-# Check for errors and/or warnings in docker output
-echo "For detailed test execution logs, see \"${log_file}\"."
 
 # Exit
 exit "${exit_status}"
