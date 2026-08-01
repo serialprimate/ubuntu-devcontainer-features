@@ -1,11 +1,11 @@
 {
-    "default-user": {
+    "user_default-user": {
         "image": "ubuntu:latest",
         "features": {
             "user": {}
         }
     },
-    "additional-groups": {
+    "user_additional-groups": {
         "image": "ubuntu:latest",
         "features": {
             "user": {
@@ -13,7 +13,7 @@
             }
         }
     },
-    "password-sudo": {
+    "user_password-sudo": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",
@@ -29,7 +29,7 @@
             }
         }
     },
-    "passwordless-sudo": {
+    "user_passwordless-sudo": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",
@@ -44,7 +44,7 @@
             }
         }
     },
-    "password-no-sudo": {
+    "user_password-no-sudo": {
         "image": "ubuntu:latest",
         "features": {
             "user": {

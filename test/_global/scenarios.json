@@ -1,5 +1,5 @@
 {
-    "all_features": {
+    "_global_all-features": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",

@@ -1,5 +1,5 @@
 {
-    "0-packages": {
+    "pipx-packages_0-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",
@@ -17,7 +17,7 @@
             }
         }
     },
-    "1-package": {
+    "pipx-packages_1-package": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",
@@ -35,7 +35,7 @@
             }
         }
     },
-    "2-packages": {
+    "pipx-packages_2-packages": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",

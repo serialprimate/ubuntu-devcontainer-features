@@ -1,5 +1,5 @@
 {
-    "default": {
+    "pipx_default": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",
@@ -16,7 +16,7 @@
             }
         }
     },
-    "upgraded-pip-with-upload-filter": {
+    "pipx_upgraded-pip-with-upload-filter": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-python",

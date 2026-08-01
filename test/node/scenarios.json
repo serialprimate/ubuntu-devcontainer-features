@@ -1,5 +1,5 @@
 {
-    "node-24": {
+    "node_version-24": {
         "image": "ubuntu:latest",
         "overrideFeatureInstallOrder": [
             "./apt-packages",
